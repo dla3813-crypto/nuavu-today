@@ -11,6 +11,8 @@
   python3 build_today.py --ez 현재고조회.xls [--cafe24 nuavu_xxx.csv] --out <저장소 폴더>
 """
 import argparse, csv, io, itertools, json, os, re, sys, datetime
+from zoneinfo import ZoneInfo
+KST = ZoneInfo('Asia/Seoul')
 
 SUPPLIERS = {'누아브', '자체제작'}   # 이지어드민 공급처 중 누아브 자사몰 상품이 있는 곳
 INFINITE = 9999
@@ -86,7 +88,7 @@ def main():
         exact.setdefault((x['nn'], x['opt']), []).append(x)
         loose.setdefault((x['nn'], fz(x['opt'])), []).append(x)
 
-    now = datetime.datetime.now().strftime('%m.%d %H:%M')
+    now = datetime.datetime.now(KST).strftime('%m.%d %H:%M')   # 항상 한국시간
     pdir = os.path.join(a.out, 'p'); os.makedirs(pdir, exist_ok=True)
     n_prod = n_today = n_opt = 0
     written = set()
