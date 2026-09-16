@@ -5,7 +5,7 @@
 
 ## 0. 전제
 - 크롬(Claude in Chrome)에 이지어드민(ga79.ezadmin.co.kr) 로그인 세션이 살아 있어야 한다. 로그인 화면이면 **중단하고 사장님께 알린다** (다른 작업 금지).
-- 연결 폴더: `~/Desktop/클로드` (github_token.txt, build_today.py), `~/Downloads` (크롬 다운로드 위치).
+- 연결 폴더: `~/Desktop/클로드` — 이 작업 파일은 전부 하위 폴더 **`카페24오늘출발 갱신/`** 에 있음 (github_token.txt, cafe24_secret.txt, build_today.py, cafe24_category_sync.js, 이 절차서). `~/Downloads` 는 크롬 다운로드 위치.
 - 작업 폴더는 세션 VM의 `$HOME/nuavu-today` (매 실행 새로 clone, 5MB).
 - 크롬 탭은 이 작업용으로 새로 만들고, 끝나면 닫는다. 이지어드민 세션 유지용 탭은 건드리지 않는다.
 
@@ -49,7 +49,7 @@ JSON.stringify(out)
 
 ## 4. JSON 생성 + 푸시 (device_bash)
 ```bash
-D=$(ls -d $HOME/mnt/*/ | grep -v -E 'Claude|Downloads' | head -1)     # 클로드 폴더(한글 경로는 glob로)
+D="$(ls -d $HOME/mnt/*/ | grep -v -E 'Claude|Downloads' | head -1)카페24오늘출발 갱신"     # 클로드/카페24오늘출발 갱신 폴더(한글 경로는 glob로)
 T=$(tr -d '\r\n ' < "$D/github_token.txt")
 F=$(ls -t "$HOME/mnt/Downloads"/현재고조회_*.xls | head -1)
 cd $HOME && rm -rf nuavu-today && git clone -q --depth 1 "https://x-access-token:${T}@github.com/dla3813-crypto/nuavu-today.git"
@@ -69,7 +69,7 @@ VM/컨테이너는 nuavu.cafe24api.com 접근이 막혀 있으므로 **크롬 �
    ```js
    eval('window.nvSync = ' + localStorage.getItem('nv_sync_src')); await nvSync();
    ```
-   (nv_sync_src 가 없으면 클로드 폴더의 `cafe24_category_sync.js` 전문을 실행.)
+   (nv_sync_src 가 없으면 `카페24오늘출발 갱신/cafe24_category_sync.js` 전문을 실행.)
    함수 동작: 토큰 만료 20분 전이면 refresh → today_codes.json 을 받아 product_no 로 변환(26진수 역변환) → 카테고리 58 현재 목록(`?display_group=1&limit=5000`, offset 미지원)과 비교 → 없는 것 POST(100개씩, 422 중복이면 낱개 재시도) / 빠진 것 DELETE.
 4. 결과 문자열 `카테고리 동기화: 오늘출발 W / 기존 H / 추가 A / 제외 D` 를 보고에 붙인다.
    - `TOKEN_REFRESH_FAIL` / `NO_TOKEN` → 카테고리 단계만 건너뛰고 "카페24 앱 인증 다시 필요"라고 보고 (재고 JSON 갱신은 정상 완료로 취급).
