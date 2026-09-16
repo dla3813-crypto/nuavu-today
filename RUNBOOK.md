@@ -61,11 +61,26 @@ git add -A && git commit -qm "재고 갱신 $(TZ=Asia/Seoul date '+%m-%d %H:%M')
 - 출력 `ok MM.DD HH:MM: 상품 N / 옵션 M / 오늘출발 K` 확인. **오늘출발 K가 0이거나 직전 대비 절반 이하면 푸시하지 말고 보고**(파일 깨짐·필터 오류 의심).
 - 변경이 없으면 index.json만 바뀌므로 커밋은 항상 1개.
 
+## 4.5 카페24 "오늘출발" 카테고리(cate_no=58) 동기화 — 크롬에서 API 호출
+VM/컨테이너는 nuavu.cafe24api.com 접근이 막혀 있으므로 **크롬 탭에서** 카페24 Admin API를 부른다.
+1. 푸시 후 **90초 대기** (GitHub Pages 반영). 크롬에서 `https://dla3813-crypto.github.io/nuavu-today/index.json?v=<now>` 의 updated 가 방금 값인지 확인(아니면 30초 더).
+2. 새 크롬 탭으로 `https://nuavu.cafe24api.com/api/v2/admin/categories/58` 열기 (401 JSON이 보이면 정상). 이 origin 의 localStorage 에 `nv_client`, `nv_secret`(앱 시크릿, **절대 읽거나 출력하지 않는다**), `nv_tok`(토큰), `nv_sync_src`(동기화 함수 소스)가 저장돼 있다.
+3. javascript_tool 로 실행:
+   ```js
+   eval('window.nvSync = ' + localStorage.getItem('nv_sync_src')); await nvSync();
+   ```
+   (nv_sync_src 가 없으면 클로드 폴더의 `cafe24_category_sync.js` 전문을 실행.)
+   함수 동작: 토큰 만료 20분 전이면 refresh → today_codes.json 을 받아 product_no 로 변환(26진수 역변환) → 카테고리 58 현재 목록(`?display_group=1&limit=5000`, offset 미지원)과 비교 → 없는 것 POST(100개씩, 422 중복이면 낱개 재시도) / 빠진 것 DELETE.
+4. 결과 문자열 `카테고리 동기화: 오늘출발 W / 기존 H / 추가 A / 제외 D` 를 보고에 붙인다.
+   - `TOKEN_REFRESH_FAIL` / `NO_TOKEN` → 카테고리 단계만 건너뛰고 "카페24 앱 인증 다시 필요"라고 보고 (재고 JSON 갱신은 정상 완료로 취급).
+   - `TODAY_CODES_SUSPICIOUS` / `LIST_INCOMPLETE` → 카테고리 단계 건너뛰고 보고.
+   - 앱 인증 재발급: 크롬에서 `https://nuavu.cafe24api.com/api/v2/oauth/authorize?response_type=code&client_id=1DK7wM6zAVCosDzoPDSJ5A&state=nv&redirect_uri=https://dla3813-crypto.github.io/nuavu-today/oauth.html&scope=mall.read_category,mall.write_category,mall.read_product,mall.write_product` → 사장님이 동의함 클릭 → oauth.html 의 code 를 1분 안에 위 탭에서 `grant_type=authorization_code` 로 교환해 `nv_tok` 에 저장 (cafe24_category_sync.js 상단 주석 참고; refresh 토큰은 2주).
+
 ## 5. 다운로드 폴더 정리
 - `~/Downloads/현재고조회_*.xls` 전부 삭제 (`device_request_delete_permission` ~/Downloads, 사유: 이지어드민 재고 xls 정리). 권한이 없으면 `~/Downloads/_ezadmin_old/`로 `mv -n` 하고 보고.
 
 ## 6. 보고 규칙
-- 정상: 한 줄 (`갱신 완료 HH:MM — 상품 N / 오늘출발 K`).
+- 정상: 한 줄 (`갱신 완료 HH:MM — 상품 N / 오늘출발 K / 카테고리 추가 A 제외 D`).
 - 이상(로그인 풀림, 다운로드 5분 초과, 푸시 실패, K 급감): 무엇이 막혔는지 한 줄 + 사장님 조치 필요 여부.
 
 ## 7. 검증(가끔)
