@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>nuavu-today OAuth</title>
+<style>body{font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;padding:40px;color:#111}code{display:block;padding:14px;background:#f4f4f4;font-size:16px;word-break:break-all;margin:12px 0}</style></head>
+<body>
+<h2>카페24 앱 인증코드</h2>
+<p id="msg">주소의 code 값을 읽는 중…</p>
+<code id="code"></code>
+<p style="color:#888;font-size:13px">이 코드는 1분 안에 만료됩니다. 자동화 절차가 이 페이지에서 값을 읽어갑니다.</p>
+<script>
+var q=new URLSearchParams(location.search); var c=q.get('code');
+document.getElementById('code').textContent=c||'(code 없음) '+location.search;
+document.getElementById('msg').textContent=c?'인증코드가 발급됐습니다.':'인증코드가 없습니다.';
+</script>
+</body></html>
