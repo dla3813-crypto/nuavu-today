@@ -7,6 +7,7 @@
         index.json               = 요약(생성시각, 상품수, 오늘출발 옵션수)
         today_codes.json         = 오늘출발 옵션이 1개 이상인 카페24 상품코드 배열 (목록 썸네일 배지용)
   판정: 가용 = 정상재고 - 송장 - 접수 ; 정상재고>=9999(무한) 또는 가용>0 → 1(오늘출발), 그 외 0(일반배송)
+        이지어드민 파일은 '정상재고 ≥ 1' 필터로 받아도 됨(빠진 옵션 = 0 = 일반배송으로 처리)
   중복코드: 같은 상품·옵션이 대표상품코드 여러 개면 정상재고>=1인 코드 우선
 사용:
   python3 build_today.py --ez 현재고조회.xls [--cafe24 nuavu_xxx.csv] --out <저장소 폴더>
@@ -71,6 +72,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--ez', required=True)
     ap.add_argument('--cafe24')
+    ap.add_argument('--extra', help='신상 추가분 JSON [{code,name,opts:[...]}] (브라우저에서 수집) → map.json에 병합')
     ap.add_argument('--out', required=True)
     a = ap.parse_args()
 
@@ -82,6 +84,15 @@ def main():
         products = json.load(open(map_path, encoding='utf-8'))
     else:
         sys.exit('map.json 없음: 처음엔 --cafe24 상품CSV 필요')
+    if a.extra and os.path.exists(a.extra):
+        known = {p['code'] for p in products}
+        added = 0
+        for x in json.load(open(a.extra, encoding='utf-8')):
+            if x.get('code') and x['code'] not in known and x.get('opts'):
+                products.append({'code': x['code'], 'name': x['name'], 'nn': norm_name(x['name']), 'opts': x['opts']}); added += 1
+        if added:
+            json.dump(products, open(map_path, 'w', encoding='utf-8'), ensure_ascii=False)
+            print(f'map.json 신상 {added}개 추가')
 
     ez = read_ezadmin(a.ez)
     exact, loose = {}, {}
@@ -100,7 +111,9 @@ def main():
             if cand:
                 o[opt] = status(cand)
         if not o:
-            continue   # 이지어드민에 없는 상품 → 파일 없음 → 위젯 숨김
+            o = {opt: 0 for opt in p['opts']}   # 이지어드민에 없거나(정상재고≥1 필터로 빠진) 상품 → 전 옵션 일반배송
+            if not o:
+                continue
         n_prod += 1; n_opt += len(o); n_today += sum(1 for v in o.values() if v == 1)
         if any(v == 1 for v in o.values()): today_codes.append(p['code'])
         fn = os.path.join(pdir, p['code'] + '.json')
