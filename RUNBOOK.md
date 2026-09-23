@@ -76,8 +76,11 @@ VM/컨테이너는 nuavu.cafe24api.com 접근이 막혀 있으므로 **크롬 �
    - `TODAY_CODES_SUSPICIOUS` / `LIST_INCOMPLETE` → 카테고리 단계 건너뛰고 보고.
    - 앱 인증 재발급: 크롬에서 `https://nuavu.cafe24api.com/api/v2/oauth/authorize?response_type=code&client_id=1DK7wM6zAVCosDzoPDSJ5A&state=nv&redirect_uri=https://dla3813-crypto.github.io/nuavu-today/oauth.html&scope=mall.read_category,mall.write_category,mall.read_product,mall.write_product` → 사장님이 동의함 클릭 → oauth.html 의 code 를 1분 안에 위 탭에서 `grant_type=authorization_code` 로 교환해 `nv_tok` 에 저장 (cafe24_category_sync.js 상단 주석 참고; refresh 토큰은 2주).
 
-## 5. 다운로드 폴더 정리
-- `~/Downloads/현재고조회_*.xls` 전부 삭제 (`device_request_delete_permission` ~/Downloads, 사유: 이지어드민 재고 xls 정리). 권한이 없으면 `~/Downloads/_ezadmin_old/`로 `mv -n` 하고 보고.
+## 5. 다운로드 폴더 정리 (삭제 금지)
+- `~/Downloads/현재고조회_*.xls` 를 전부 `~/Downloads/_ezadmin_old/` 로 옮긴다 (`mkdir -p` 후 `mv -n`). **삭제하지 않는다 — `device_request_delete_permission` 을 절대 호출하지 않는다** (사장님께 승인 알림이 가므로).
+  ```bash
+  mkdir -p "$HOME/mnt/Downloads/_ezadmin_old" && mv -n "$HOME/mnt/Downloads"/현재고조회_*.xls "$HOME/mnt/Downloads/_ezadmin_old/" 2>/dev/null; ls "$HOME/mnt/Downloads"/현재고조회_*.xls 2>/dev/null | wc -l   # 0 이면 정리 완료
+  ```
 
 ## 6. 보고 규칙
 - 정상: 한 줄 (`갱신 완료 HH:MM — 상품 N / 오늘출발 K / 카테고리 추가 A 제외 D`).
