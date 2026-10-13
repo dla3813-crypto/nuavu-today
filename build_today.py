@@ -27,8 +27,9 @@ def norm_name(s):
     s = re.sub(r'[^\w가-힣]', '', s)                  # 공백·기호 제거
     return s.lower()
 
-def fz(s):  # 옵션 느슨 비교용
-    return re.sub(r'[\s&★+\-()\[\]]', '', str(s)).lower()
+def fz(s):  # 옵션 느슨 비교용 — 카페24 옵션의 (오늘출발)/(모델착용) 표기는 이지어드민에 없으므로 무시
+    s = re.sub(r'\((오늘출발|모델\s*착용)\)', '', str(s))
+    return re.sub(r'[\s&★+\-()\[\]]', '', s).lower()
 
 def read_cafe24(path):
     """카페24 상품 CSV → [(상품코드, 정규화상품명, [옵션문자열...])]"""
