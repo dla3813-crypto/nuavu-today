@@ -65,6 +65,20 @@ VM/컨테이너는 nuavu.cafe24api.com 접근이 막혀 있으므로 **크롬 �
    - `TODAY_CODES_SUSPICIOUS` / `LIST_INCOMPLETE` → 카테고리 단계 건너뛰고 보고.
    - 앱 인증 재발급: 크롬에서 `https://nuavu.cafe24api.com/api/v2/oauth/authorize?response_type=code&client_id=1DK7wM6zAVCosDzoPDSJ5A&state=nv&redirect_uri=https://dla3813-crypto.github.io/nuavu-today/oauth.html&scope=mall.read_category,mall.write_category,mall.read_product,mall.write_product` → 사장님이 동의함 클릭 → oauth.html 의 code 를 1분 안에 위 탭에서 `grant_type=authorization_code` 로 교환해 `nv_tok` 에 저장 (cafe24_category_sync.js 상단 주석 참고; refresh 토큰은 2주).
 
+## 4.7 실시간 상품 랭킹 갱신 (에이블리 랭킹 → ranking.json) — 크롬 + device_bash
+1. 크롬 새 탭으로 `https://mobile.a-bly.com/screens?screen_name=COMPONENT_LIST&next_token=eyJsIjogMTEsICJwIjogeyJtYXJrZXRfc25vIjogMjkzNzl9fQ%3D%3D` 열기(로그인 불필요). `카페24오늘출발 갱신/ably_rank_scrape.js` 전문을 javascript_tool 로 실행 → `window.__rs.done` 확인(5초). `n` 이 10 미만이면 이 단계 전체를 건너뛰고 보고에 한 줄.
+2. device_bash (4단계와 같은 clone 폴더 $HOME/nuavu-today 에서):
+   ```bash
+   D="$(ls -d $HOME/mnt/*/ | grep -v -E 'Claude|Downloads' | head -1)카페24오늘출발 갱신"; T=$(tr -d '\r\n ' < "$D/github_token.txt")
+   cd $HOME/nuavu-today && python3 "$D/rank_match.py" --raw "$HOME/mnt/Downloads/rank_raw.json" --map map.json --goods $HOME/nuavu-reviews/goods_map.json --out rank_ids.json
+   git add -A && git commit -qm "랭킹 매칭" && git push -q "https://x-access-token:${T}@github.com/dla3813-crypto/nuavu-today.git" main
+   mv -n "$HOME/mnt/Downloads/rank_raw.json" "$HOME/mnt/Downloads/_ezadmin_old/rank_raw_$(date +%s).json"
+   ```
+   (`$HOME/nuavu-reviews` 가 없으면 먼저 `git clone -q --depth 1 "https://x-access-token:${T}@github.com/dla3813-crypto/nuavu-reviews.git" $HOME/nuavu-reviews`.) 60초 대기(Pages 반영).
+3. 크롬 cafe24api 탭(4.5단계 탭)에서 `카페24오늘출발 갱신/cafe24_rank_enrich.js` 전문 실행 → `window.__rk.done` 확인(30초). `~/Downloads/ranking.json` 생성됨.
+4. device_bash: `cd $HOME/nuavu-today && cp "$HOME/mnt/Downloads/ranking.json" . && git add -A && git commit -qm "ranking 갱신" && git push -q "https://x-access-token:${T}@github.com/dla3813-crypto/nuavu-today.git" main` 후 ranking.json 을 `_ezadmin_old/` 로 mv -n.
+- 실패하면 이 단계만 건너뛴다(직전 ranking.json 이 그대로 쓰임). 보고에 `랭킹 N` 을 덧붙인다.
+
 ## 5. 다운로드 폴더 정리 (삭제 금지)
 - `~/Downloads/현재고조회_*.xls` 를 전부 `~/Downloads/_ezadmin_old/` 로 옮긴다 (`mkdir -p` 후 `mv -n`). **삭제하지 않는다 — `device_request_delete_permission` 을 절대 호출하지 않는다** (사장님께 승인 알림이 가므로).
   ```bash
@@ -72,7 +86,7 @@ VM/컨테이너는 nuavu.cafe24api.com 접근이 막혀 있으므로 **크롬 �
   ```
 
 ## 6. 보고 규칙
-- 정상: 한 줄 (`갱신 완료 HH:MM — 상품 N / 오늘출발 K / 카테고리 추가 A 제외 D`).
+- 정상: 한 줄 (`갱신 완료 HH:MM — 상품 N / 오늘출발 K / 카테고리 추가 A 제외 D / 랭킹 R`).
 - 이상(로그인 풀림, 다운로드 5분 초과, 푸시 실패, K 급감): 무엇이 막혔는지 한 줄 + 사장님 조치 필요 여부.
 
 ## 7. 검증(가끔)
