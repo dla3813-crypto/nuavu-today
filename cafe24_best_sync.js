@@ -1,6 +1,6 @@
 // [베스트 2단계] best_ids.json(GitHub) → 카페24 베스트 카테고리(cate_no 69) 를 그 목록으로 교체 (순서 = 매출 순위)
 // 크롬 탭 https://nuavu.cafe24api.com/... 에서 javascript_tool 로 실행. 결과: window.__best = {done, want, had, added, removed, ordered(순서 지정 성공 수), errs}
-// 전제: 카테고리 69 는 수동 진열(product_display_type 'U') — 2026-10-14 전환 완료. 자동 진열이면 순서 지정이 422 로 실패함.
+// 전제: 카테고리 69 는 product_display_type 'M'(자동정렬+사용자지정). 스크립트가 아니면 자동 전환함. ordered = 고정 성공 수(=want 면 정상).
 (async()=>{
   window.__best={done:false};
   try{
@@ -20,15 +20,19 @@
     for(const n of [...have].filter(n=>!want.includes(n))){ const r=await fetch('/api/v2/admin/categories/'+CAT+'/products/'+n+'?display_group=1',{method:'DELETE',headers:H}); if(r.ok) removed++; else errs.push('del '+n+' '+r.status); await sleep(350); }
     const add=want.filter(n=>!have.has(n));
     for(let i=0;i<add.length;i+=100){ const b=add.slice(i,i+100); const r=await fetch('/api/v2/admin/categories/'+CAT+'/products',{method:'POST',headers:H,body:JSON.stringify({shop_no:1,request:{display_group:1,product_no:b}})}); if(r.status===201) added+=b.length; else errs.push('add '+r.status); await sleep(500); }
-    // 순서 지정: 카테고리는 수동 진열(product_display_type U)이어야 함. API 는 상품 1개씩 sequence 로 지정 (요청제한 1건)
+    // 순서 지정 (검증 2026-10-14): 카테고리 product_display_type 'M'(자동정렬+사용자지정) 상태에서
+    //   고정 해제(fixed_sort F) → sequence 지정 → 고정(fixed_sort T) 순으로 상품 1개씩 PUT. ('U' 모드에선 sequence 가 무시되고, 고정된 상품에 sequence 넣으면 422)
+    const cj=await (await fetch('/api/v2/admin/categories/'+CAT,{headers:H})).json();
+    if(cj.category && cj.category.product_display_type!=='M'){ const r=await fetch('/api/v2/admin/categories/'+CAT,{method:'PUT',headers:H,body:JSON.stringify({shop_no:1,request:{product_display_type:'M'}})}); if(!r.ok) errs.push('mode '+r.status); }
+    const put=async req=>{ let r=await fetch('/api/v2/admin/categories/'+CAT+'/products',{method:'PUT',headers:H,body:JSON.stringify({shop_no:1,request:req})}); if(r.status===429){ await sleep(1200); r=await fetch('/api/v2/admin/categories/'+CAT+'/products',{method:'PUT',headers:H,body:JSON.stringify({shop_no:1,request:req})}); } return r; };
+    const cur=await (await fetch('/api/v2/admin/categories/'+CAT+'/products?display_group=1&limit=5000&_='+Date.now(),{headers:H,cache:'no-store'})).json();
+    const fixedNow=new Set((cur.products||[]).filter(p=>p.fixed_sort).map(p=>p.product_no));
     let ordered=0;
-    for(let i=0;i<want.length;i++){
-      let r=await fetch('/api/v2/admin/categories/'+CAT+'/products',{method:'PUT',headers:H,body:JSON.stringify({shop_no:1,request:{display_group:1,product_no:want[i],sequence:i+1}})});
-      if(r.status===429){ await sleep(1200); r=await fetch('/api/v2/admin/categories/'+CAT+'/products',{method:'PUT',headers:H,body:JSON.stringify({shop_no:1,request:{display_group:1,product_no:want[i],sequence:i+1}})}); }
-      if(r.ok) ordered++; else if(errs.length<8) errs.push('seq '+want[i]+' '+r.status+' '+(await r.text()).slice(0,80));
-      await sleep(120);
-    }
+    for(const n of want){ if(fixedNow.has(n)){ const r=await put({display_group:1,product_no:n,fixed_sort:'F'}); if(!r.ok&&errs.length<8) errs.push('unfix '+n+' '+r.status); await sleep(80); } }
+    for(let i=0;i<want.length;i++){ const r=await put({display_group:1,product_no:want[i],sequence:i+1}); if(!r.ok&&errs.length<8) errs.push('seq '+want[i]+' '+r.status+' '+(await r.text()).slice(0,60)); await sleep(80); }
+    for(const n of want){ const r=await put({display_group:1,product_no:n,fixed_sort:'T'}); if(r.ok) ordered++; else if(errs.length<8) errs.push('fix '+n+' '+r.status); await sleep(80); }
     window.__best={done:true,want:want.length,had:have.size,added,removed,ordered,errs:errs.slice(0,8)};
+    console.log(window.__best);
     console.log(window.__best);
   }catch(e){ window.__best={done:true,err:String(e)}; }
 })();
