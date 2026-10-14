@@ -30,22 +30,11 @@
 2. 첫 행이 "완료 100%"가 될 때까지 15초 간격으로 새로고침(최대 5분). 파일명 `현재고조회_YYYYMMDDHHMMSS_*.xls`.
 3. 그 파일명 링크를 JS로 `.click()` → 크롬이 `~/Downloads`에 저장 (5초 대기).
 
-## 3. (선택) 카페24 신상 반영 — map.json에 없는 상품
-크롬에서 `https://m.nuavu.kr/product/list.html?cate_no=50` (ALL, 최신순) 1페이지를 열고:
-```js
-const known = await (await fetch('https://dla3813-crypto.github.io/nuavu-today/map.json?v='+Date.now())).json();
-const codes = new Set(known.map(p=>p.code));
-function toCode(no){var n=+no,s='',A='ABCDEFGHIJKLMNOPQRSTUVWXYZ';do{s=A[n%26]+s;n=Math.floor(n/26);}while(n>0);while(s.length<7)s='0'+s;return 'P'+s;}
-const nos=[...new Set([...document.querySelectorAll('.nv-badge[data-no]')].map(e=>e.getAttribute('data-no')))].filter(no=>!codes.has(toCode(no)));
-const out=[];
-for(const no of nos){ const t=await (await fetch('/product/detail.html?product_no='+no)).text();
-  const m=t.match(/option_stock_data\s*=\s*'([^']+)'/); if(!m) continue;
-  const d=JSON.parse(m[1].replace(/\\"/g,'"').replace(/\\\\/g,'\\'));
-  const name=(t.match(/<title>([^<]*)<\/title>/)||[])[1].replace(/ - 누아브$/,'');
-  out.push({code:toCode(no), name, opts:Object.values(d).map(o=>String(o.option_value))}); }
-JSON.stringify(out)
-```
-결과가 `[]`가 아니면 그 JSON을 VM의 `$HOME/nuavu-today/new_products.json`에 저장하고 3단계에서 `--extra new_products.json`을 붙인다. (`option_stock_data` 파싱이 실패하면 그 상품은 건너뛰고 보고.)
+## 3. 카페24 상품 목록(map.json) 보강 — 신상·재진열 상품
+크롬 새 탭으로 `https://nuavu.cafe24api.com/api/v2/admin/categories/58` 을 열고(401 JSON 정상) `카페24오늘출발 갱신/cafe24_map_update.js` 전문을 javascript_tool 로 실행한다 (device_bash `cat` 으로 읽어서 그대로). 10초 간격으로 `window.__map` 을 확인해 `done:true` 까지 기다린다(보통 30초, 신상 많으면 1~2분).
+- `added` 가 1 이상이면 `~/Downloads/new_products.json` 이 생긴다 → 4단계에서 `--extra "$HOME/mnt/Downloads/new_products.json"` 을 붙이고, 끝나면 그 파일을 `~/Downloads/_ezadmin_old/` 로 `mv -n`.
+- `added` 가 0이면 건너뛴다. `err` 가 있으면 이 단계만 건너뛰고 보고에 한 줄 덧붙인다 (재고 갱신은 계속).
+- 동작: 진열 중인 상품 전체를 API 로 받아 map.json 에 없는 상품만 옵션 API 로 옵션 조합을 만든다. (예전 방식인 목록 페이지 긁기는 미진열→재진열 상품을 못 잡아서 폐기)
 
 ## 4. JSON 생성 + 푸시 (device_bash)
 ```bash
@@ -54,7 +43,7 @@ T=$(tr -d '\r\n ' < "$D/github_token.txt")
 F=$(ls -t "$HOME/mnt/Downloads"/현재고조회_*.xls | head -1)
 cd $HOME && rm -rf nuavu-today && git clone -q --depth 1 "https://x-access-token:${T}@github.com/dla3813-crypto/nuavu-today.git"
 cd nuavu-today && cp "$D/build_today.py" . 2>/dev/null
-python3 build_today.py --ez "$F" --out .            # 신상이 있으면 --extra new_products.json 추가
+python3 build_today.py --ez "$F" --out .            # 3단계에서 신상이 있으면 --extra "$HOME/mnt/Downloads/new_products.json" 추가
 git config user.email dla3813@gmail.com && git config user.name nuavu-bot
 git add -A && git commit -qm "재고 갱신 $(TZ=Asia/Seoul date '+%m-%d %H:%M')" && git push -q "https://x-access-token:${T}@github.com/dla3813-crypto/nuavu-today.git" main
 ```
