@@ -27,9 +27,8 @@ def norm_name(s):
     s = re.sub(r'[^\w가-힣]', '', s)                  # 공백·기호 제거
     return s.lower()
 
-def fz(s):  # 옵션 느슨 비교용 — 카페24 옵션의 (오늘출발)/(모델착용) 표기는 이지어드민에 없으므로 무시
-    s = re.sub(r'\((오늘출발|모델\s*착용)\)', '', str(s))
-    return re.sub(r'[\s&★+\-()\[\]]', '', s).lower()
+def fz(s):  # 옵션 느슨 비교용
+    return re.sub(r'[\s&★+\-()\[\]]', '', str(s)).lower()
 
 def read_cafe24(path):
     """카페24 상품 CSV → [(상품코드, 정규화상품명, [옵션문자열...])]"""
@@ -101,6 +100,8 @@ def main():
         exact.setdefault((x['nn'], x['opt']), []).append(x)
         loose.setdefault((x['nn'], fz(x['opt'])), []).append(x)
 
+    fpath = os.path.join(a.out, 'force_today.json')             # ["P00000WK", ...] 항상 오늘출발 처리할 카페24 상품코드
+    force = set(json.load(open(fpath, encoding='utf-8'))) if os.path.exists(fpath) else set()
     now = datetime.datetime.now(KST).strftime('%m.%d %H:%M')   # 항상 한국시간
     pdir = os.path.join(a.out, 'p'); os.makedirs(pdir, exist_ok=True)
     n_prod = n_today = n_opt = 0
@@ -115,6 +116,8 @@ def main():
             o = {opt: 0 for opt in p['opts']}   # 이지어드민에 없거나(정상재고≥1 필터로 빠진) 상품 → 전 옵션 일반배송
             if not o:
                 continue
+        if p['code'] in force:                  # force_today.json: 항상 오늘출발로 표시할 상품(묶음 옵션 등 이지어드민과 매칭 불가)
+            o = {opt: 1 for opt in o}
         n_prod += 1; n_opt += len(o); n_today += sum(1 for v in o.values() if v == 1)
         if any(v == 1 for v in o.values()): today_codes.append(p['code'])
         fn = os.path.join(pdir, p['code'] + '.json')
