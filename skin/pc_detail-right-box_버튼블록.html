@@ -1,0 +1,35 @@
+<div class="btnArea nv-actions">
+                    <a href="#none" class="nv-btn nv-btn-cart {$basket_display|display}" onclick="{$action_basket}"><p class="btn_01">장바구니 담기</p></a>
+                    <a href="#none" class="first nv-btn nv-btn-buy {$buy_display|display}" onclick="{$action_buy}"><p class="btn_buy">바로 구매하기</p></a>
+                    <span class="{$soldout_display|display}" > <a href="#none" style="cursor:default"><p class="btn_02" style="cursor:default; background:#d9d9d9">SOLD OUT</p></a></span>
+                    <a href="#none" class="nv-btn nv-btn-npay" id="nvNpayBtn"><p class="btn_01 nv-pay"><img src="https://dla3813-crypto.github.io/nuavu-today/img/npay_pill.png" alt="네이버페이"><span>구매</span></p></a>
+                    <a href="#none" class="nv-btn nv-btn-kpay" id="nvKpayBtn"><p class="btn_01 nv-pay"><img src="https://dla3813-crypto.github.io/nuavu-today/img/kpay_pill.png" alt="카카오페이"><span>구매</span></p></a>
+                </div>
+
+                <!-- 네이버 체크아웃 / 카카오페이 공식 버튼 : 화면 밖에 두고 위의 커스텀 버튼이 대신 클릭 (2026-10-20) -->
+                <div class="nv-pay-src">
+                <div id="NaverChk_Button"></div><!-- //네이버 체크아웃 구매 버튼 -->
+                 <div id="{$app_payment_button_box_id}"></div>
+                </div>
+<style>
+.btnArea.nv-actions{height:auto !important;overflow:visible}
+.btnArea.nv-actions .nv-btn{display:block;width:100%;margin:0 0 5px;text-decoration:none}
+.btnArea.nv-actions .nv-btn.displaynone{display:none}
+.btnArea.nv-actions .nv-btn p{margin:0;width:100%;box-sizing:border-box}
+.btnArea.nv-actions .nv-btn-npay p.nv-pay,.btnArea.nv-actions .nv-btn-kpay p.nv-pay{display:flex;align-items:center;justify-content:center;gap:6px;height:35px;line-height:35px;background:#fff;color:#111;border:1px solid #03c75a;cursor:pointer}
+.btnArea.nv-actions .nv-btn-kpay p.nv-pay{border-color:#fee500}
+.btnArea.nv-actions .nv-btn p.nv-pay img{height:20px;width:auto;display:block}
+.nv-pay-src{position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden}
+</style>
+<script>
+(function(){
+  function fire(sel){ var el=document.querySelector(sel); if(!el) return false; el.click(); return true; }
+  function bind(id, sel){
+    var b=document.getElementById(id); if(!b) return;
+    b.addEventListener('click', function(e){ e.preventDefault(); fire(sel); });
+    var tries=0, t=setInterval(function(){ tries++; if(document.querySelector(sel)){ clearInterval(t); } else if(tries>=12){ clearInterval(t); b.style.display='none'; } }, 500);
+  }
+  bind('nvNpayBtn', '#NaverChk_Button .npay_btn_pay');
+  bind('nvKpayBtn', '.nv-pay-src .__checkout_btn_buy');
+})();
+</script>

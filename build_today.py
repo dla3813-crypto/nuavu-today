@@ -85,14 +85,20 @@ def main():
     else:
         sys.exit('map.json 없음: 처음엔 --cafe24 상품CSV 필요')
     if a.extra and os.path.exists(a.extra):
-        known = {p['code'] for p in products}
-        added = 0
+        bycode = {p['code']: p for p in products}
+        added = updated = 0
         for x in json.load(open(a.extra, encoding='utf-8')):
-            if x.get('code') and x['code'] not in known and x.get('opts'):
+            if not (x.get('code') and x.get('opts')):
+                continue
+            if x['code'] in bycode:                                  # 이미 있는 상품 → 옵션/상품명 갱신 (옵션 변경 반영)
+                cur = bycode[x['code']]
+                if cur.get('opts') != x['opts'] or cur.get('name') != x['name']:
+                    cur['opts'] = x['opts']; cur['name'] = x['name']; cur['nn'] = norm_name(x['name']); updated += 1
+            else:
                 products.append({'code': x['code'], 'name': x['name'], 'nn': norm_name(x['name']), 'opts': x['opts']}); added += 1
-        if added:
+        if added or updated:
             json.dump(products, open(map_path, 'w', encoding='utf-8'), ensure_ascii=False)
-            print(f'map.json 신상 {added}개 추가')
+            print(f'map.json 신상 {added}개 추가 / 옵션 갱신 {updated}개')
 
     ez = read_ezadmin(a.ez)
     exact, loose = {}, {}

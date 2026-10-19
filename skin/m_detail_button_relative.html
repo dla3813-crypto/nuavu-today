@@ -1,0 +1,46 @@
+<!-- 참고 : 뉴상품관리 전용 변수가 포함되어 있습니다. 뉴상품관리 이외의 곳에서 사용하면 일부 변수가 정상동작하지 않을 수 있습니다. -->
+<!-- 누아브 구매 버튼 4단 (장바구니 / 바로구매 / 네이버페이 / 카카오페이) — 2026-10-20. 네이버·카카오 공식 위젯은 .nv-pay-src 안에 화면 밖으로 숨겨두고, 커스텀 버튼이 그 안의 실제 버튼을 대신 클릭함 -->
+        <div module="product_action" id="{$fixed_action_button}">
+            <div class="ec-base-button gColumn nv-actions {$action_display|display}" style="display:block">
+                <button type="button" class="btnNormal nv-btn nv-btn-cart {$basket_display|display}" onclick="{$action_basket}" id="actionCart">장바구니 담기</button>
+                <a href="#none" class="btnStrong nv-btn nv-btn-buy {$buy_display|display}" onclick="{$action_buy}"><span id="{$btn_buy_mobile_id}">바로 구매하기</span><span class="{$btn_reserve_class|display}" id="{$btn_reserve_mobile_id}">예약주문</span></a>
+                <!--button type="button" class="btnNormal {$wishlist_display|display}" onclick="{$action_wishlist}" id="actionWish">관심상품</button-->
+                <a href="#none" class="nv-btn nv-btn-npay" id="nvNpayBtn"><img src="https://dla3813-crypto.github.io/nuavu-today/img/npay_pill.png" alt="네이버페이"><span>구매</span></a>
+                <a href="#none" class="nv-btn nv-btn-kpay" id="nvKpayBtn"><img src="https://dla3813-crypto.github.io/nuavu-today/img/kpay_pill.png" alt="카카오페이"><span>구매</span></a>
+            </div>
+            <div class="ec-base-button gColumn soldout {$action_soldout_display|display}">
+                <button type="button" class="btnStrong {$soldout_display|display}">SOLD OUT</button>
+                <button type="button" class="btnNormal {$wishlist_display|display}" onclick="{$action_wishlist}" id="actionWishSoldout">WISH ITEM</button>
+            </div>
+            <!-- 네이버 체크아웃 구매 버튼 / 카카오페이 버튼 : 화면 밖에 두고 커스텀 버튼으로 대신 클릭 -->
+            <div class="nv-pay-src">
+                <div id="NaverChk_Button" style="display:none;"></div>
+                <div id="{$app_payment_button_box_id}"></div>
+            </div>
+        </div>
+<style>
+.nv-actions{display:block}
+.nv-actions .nv-btn{display:flex !important;align-items:center;justify-content:center;gap:7px;width:100%;height:44px;line-height:42px;margin:0 0 8px !important;padding:0;box-sizing:border-box;text-decoration:none;cursor:pointer;-webkit-appearance:none;border-radius:0}
+.nv-actions .nv-btn-cart{background:#fff;color:#111;border:1px solid #111}
+.nv-actions .nv-btn-buy{background:#111;color:#fff;border:1px solid #111}
+.nv-actions .nv-btn-npay{background:#fff;color:#111;border:1px solid #03c75a}
+.nv-actions .nv-btn-kpay{background:#fff;color:#111;border:1px solid #fee500}
+.nv-actions .nv-btn-npay,.nv-actions .nv-btn-kpay,.nv-actions .nv-btn-npay span,.nv-actions .nv-btn-kpay span{font-size:11px !important;font-weight:400}
+.nv-actions .nv-btn img{height:20px;width:auto;display:block}
+.nv-actions .nv-btn.displaynone{display:none !important}
+.nv-pay-src{position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden}
+</style>
+<script>
+(function(){
+  function fire(sel){ var el=document.querySelector(sel); if(!el) return false; el.click(); return true; }
+  function bind(id, sel){
+    var b=document.getElementById(id); if(!b) return;
+    b.addEventListener('click', function(e){ e.preventDefault(); fire(sel); });
+    /* 결제 위젯이 안 뜨는 상품(간편결제 미지원 등)이면 커스텀 버튼도 숨김 */
+    var tries=0, t=setInterval(function(){ tries++; if(document.querySelector(sel)){ clearInterval(t); } else if(tries>=12){ clearInterval(t); b.style.display='none'; } }, 500);
+  }
+  bind('nvNpayBtn', '#NaverChk_Button .npay_btn_pay');
+  bind('nvKpayBtn', '.nv-pay-src .__checkout_btn_buy');
+})();
+</script>
+<!-- //참고 -->
