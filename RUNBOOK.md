@@ -30,9 +30,9 @@
 2. 첫 행이 "완료 100%"가 될 때까지 15초 간격으로 새로고침(최대 5분). 파일명 `현재고조회_YYYYMMDDHHMMSS_*.xls`.
 3. 그 파일명 링크를 JS로 `.click()` → 크롬이 `~/Downloads`에 저장 (5초 대기).
 
-## 3. 카페24 상품 목록(map.json) 보강 — 신상·재진열 상품
+## 3. 카페24 상품 목록(map.json) 보강 — 신상·재진열 상품 + 최근 3일 내 수정된 상품의 옵션 갱신 (2026-10-20: 옵션명이 바뀐 상품이 재고 매칭에서 빠지는 문제 방지)
 크롬 새 탭으로 `https://nuavu.cafe24api.com/api/v2/admin/categories/58` 을 열고(401 JSON 정상) `카페24오늘출발 갱신/cafe24_map_update.js` 전문을 javascript_tool 로 실행한다 (device_bash `cat` 으로 읽어서 그대로). 10초 간격으로 `window.__map` 을 확인해 `done:true` 까지 기다린다(보통 30초, 신상 많으면 1~2분).
-- `added` 가 1 이상이면 `~/Downloads/new_products.json` 이 생긴다 → 4단계에서 `--extra "$HOME/mnt/Downloads/new_products.json"` 을 붙이고, 끝나면 그 파일을 `~/Downloads/_ezadmin_old/` 로 `mv -n`.
+- `added`(신상 missing + 최근수정 updated 합계) 가 1 이상이면 `~/Downloads/new_products.json` 이 생긴다. build_today.py 는 이미 있는 코드는 옵션·상품명을 갱신하고 없는 코드는 추가한다(출력: `map.json 신상 X개 추가 / 옵션 갱신 Y개`) → 4단계에서 `--extra "$HOME/mnt/Downloads/new_products.json"` 을 붙이고, 끝나면 그 파일을 `~/Downloads/_ezadmin_old/` 로 `mv -n`.
 - `added` 가 0이면 건너뛴다. `err` 가 있으면 이 단계만 건너뛰고 보고에 한 줄 덧붙인다 (재고 갱신은 계속).
 - 동작: 진열 중인 상품 전체를 API 로 받아 map.json 에 없는 상품만 옵션 API 로 옵션 조합을 만든다. (예전 방식인 목록 페이지 긁기는 미진열→재진열 상품을 못 잡아서 폐기)
 
