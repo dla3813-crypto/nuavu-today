@@ -1,5 +1,5 @@
 {
- "updated": "10.23 03:51",
+ "updated": "10.23 05:51",
  "items": [
   {
    "rank": 1,
@@ -12,15 +12,6 @@
   },
   {
    "rank": 2,
-   "no": 2269,
-   "name": "[2color]우나 기모 하이넥 버튼 오버핏 후드집업",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/a29c114af9e3e8da2ef9b81f640eb3ba.gif",
-   "price": 39800,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 3,
    "no": 2222,
    "name": "[2color,투피스]어텀 모직 카라 플라워 패턴 긴팔 투피스 자켓 세트",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260917/ced5e7bd333d9383a24894a7c54215d7.gif",
@@ -29,16 +20,16 @@
    "soldout": false
   },
   {
-   "rank": 4,
-   "no": 1778,
-   "name": "[2color]스타 패치 오버핏 베이직 맨투맨",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260318/e4c71d09b2962d018b9f81b8bed72fd3.gif",
-   "price": 19800,
+   "rank": 3,
+   "no": 2269,
+   "name": "[2color]우나 기모 하이넥 버튼 오버핏 후드집업",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/a29c114af9e3e8da2ef9b81f640eb3ba.gif",
+   "price": 39800,
    "sale": null,
    "soldout": false
   },
   {
-   "rank": 5,
+   "rank": 4,
    "no": 2254,
    "name": "[2color]버튼 모직 카라 퍼 포인트 패딩 숏 자켓",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260923/bb656591e6427d16888435c0e7794498.gif",
@@ -47,11 +38,20 @@
    "soldout": false
   },
   {
+   "rank": 5,
+   "no": 2252,
+   "name": "[긴팔 세트 투피스][3color]윈터 모직 도트 카라 폴라 투피스 세트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260922/d69d524edcc333b1dea9bde9ca8a8d02.gif",
+   "price": 35500,
+   "sale": null,
+   "soldout": false
+  },
+  {
    "rank": 6,
-   "no": 2260,
-   "name": "음표 엔젤 도트 화이트 후드 집업",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260923/4d240109cf9692ee638581fb8fcbdabb.gif",
-   "price": 28900,
+   "no": 1985,
+   "name": "스타 도트 레이스 레이어드 미니 스커트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260520/31d983ec617254ea9695e94a92c352c5.gif",
+   "price": 15900,
    "sale": null,
    "soldout": false
   },
@@ -66,28 +66,28 @@
   },
   {
    "rank": 8,
-   "no": 2252,
-   "name": "[긴팔 세트 투피스][3color]윈터 모직 도트 카라 폴라 투피스 세트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260922/d69d524edcc333b1dea9bde9ca8a8d02.gif",
-   "price": 35500,
+   "no": 2260,
+   "name": "음표 엔젤 도트 화이트 후드 집업",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260923/4d240109cf9692ee638581fb8fcbdabb.gif",
+   "price": 28900,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 9,
-   "no": 1689,
-   "name": "프릴 도트 카라 레이어드 긴팔 셔츠",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260122/c1e5a9ad635c88cb4203dacf00159499.gif",
-   "price": 19800,
+   "no": 1643,
+   "name": "[5color]캔디 반목 라운드넥 오버핏 반집업 니트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251218/2e35b949f4a1fad01dc7afd8c566db0d.gif",
+   "price": 19700,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 10,
-   "no": 1643,
-   "name": "[5color]캔디 반목 라운드넥 오버핏 반집업 니트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251218/2e35b949f4a1fad01dc7afd8c566db0d.gif",
-   "price": 19700,
+   "no": 1689,
+   "name": "프릴 도트 카라 레이어드 긴팔 셔츠",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260122/c1e5a9ad635c88cb4203dacf00159499.gif",
+   "price": 19800,
    "sale": null,
    "soldout": false
   },
@@ -102,10 +102,10 @@
   },
   {
    "rank": 12,
-   "no": 1684,
-   "name": "[3color]숏 카라 크롭 울 코트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260122/0ce4d64723790b2b3bd97425f5561298.gif",
-   "price": 39800,
+   "no": 1641,
+   "name": "싱글 버튼 오버핏 후드 코트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251218/feed8add7af947eb2507a7733b4fbc97.gif",
+   "price": 52300,
    "sale": null,
    "soldout": false
   },
@@ -120,28 +120,28 @@
   },
   {
    "rank": 14,
-   "no": 2212,
-   "name": "[3color]루노 워싱 프릴 미디 스커트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260916/3ca52a7400aa5622dcde23dc39901570.gif",
-   "price": 31900,
+   "no": 1684,
+   "name": "[3color]숏 카라 크롭 울 코트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260122/0ce4d64723790b2b3bd97425f5561298.gif",
+   "price": 39800,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 15,
-   "no": 2221,
-   "name": "하우스 자수 언발 버튼 후드 티셔츠",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260917/ef938b19d443691009a37720c3e4c9c3.gif",
-   "price": 28900,
+   "no": 1670,
+   "name": "팬더 배색 웰론 숏 경량 패딩",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260102/a2a6d61cdc397cb9ae275111d83251e8.gif",
+   "price": 59800,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 16,
-   "no": 1641,
-   "name": "싱글 버튼 오버핏 후드 코트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251218/feed8add7af947eb2507a7733b4fbc97.gif",
-   "price": 52300,
+   "no": 2212,
+   "name": "[3color]루노 워싱 프릴 미디 스커트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260916/3ca52a7400aa5622dcde23dc39901570.gif",
+   "price": 31900,
    "sale": null,
    "soldout": false
   }
