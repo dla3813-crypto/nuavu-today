@@ -21,8 +21,8 @@ INFINITE = 9999
 
 def norm_name(s):
     s = str(s or '').strip()
-    s = re.sub(r'^\(?[A-Z]{1,3}-\d+\)?\s*', '', s)   # (NA-9) 로케이션 접두
-    s = re.sub(r'^\([^)]*\)', '', s)                 # 기타 ( ) 접두
+    s = re.sub(r'^\([^)]*\)\s*', '', s)              # (NA-9) (B-5.5) (CD-10,BC-3.5) 등 괄호 로케이션 접두 통째로
+    s = re.sub(r'^[A-Z]{1,3}-[\d.]+\s*', '', s)       # 괄호 없는 로케이션 접두 (NA-9 / B-5.5)
     s = re.sub(r'\[[^\]]*\]', '', s)                 # [2color] 등 태그
     s = re.sub(r'[^\w가-힣]', '', s)                  # 공백·기호 제거
     return s.lower()
