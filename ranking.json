@@ -1,5 +1,5 @@
 {
- "updated": "10.28 07:49",
+ "updated": "10.28 09:51",
  "items": [
   {
    "rank": 1,
@@ -12,15 +12,6 @@
   },
   {
    "rank": 2,
-   "no": 2269,
-   "name": "[2color]우나 기모 하이넥 버튼 오버핏 후드집업",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/a29c114af9e3e8da2ef9b81f640eb3ba.gif",
-   "price": 39800,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 3,
    "no": 2286,
    "name": "도트 나그랑 리본 포켓 후드 집업",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/69b807fc2ece0648504fd33e6cfb4afe.gif",
@@ -29,11 +20,20 @@
    "soldout": false
   },
   {
-   "rank": 4,
+   "rank": 3,
    "no": 2222,
    "name": "[2color,투피스]어텀 모직 카라 플라워 패턴 긴팔 투피스 자켓 세트",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260917/ced5e7bd333d9383a24894a7c54215d7.gif",
    "price": 33900,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 4,
+   "no": 2269,
+   "name": "[2color]우나 기모 하이넥 버튼 오버핏 후드집업",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/a29c114af9e3e8da2ef9b81f640eb3ba.gif",
+   "price": 39800,
    "sale": null,
    "soldout": false
   },
@@ -75,10 +75,10 @@
   },
   {
    "rank": 9,
-   "no": 2212,
-   "name": "[3color]루노 워싱 프릴 미디 스커트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260916/3ca52a7400aa5622dcde23dc39901570.gif",
-   "price": 31900,
+   "no": 1919,
+   "name": "민트 도트 스타 레터링 오버핏 후드 집업",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260429/7bdaf957916d346e59be83b4b77c28fc.gif",
+   "price": 25900,
    "sale": null,
    "soldout": false
   },
@@ -93,15 +93,6 @@
   },
   {
    "rank": 11,
-   "no": 1919,
-   "name": "민트 도트 스타 레터링 오버핏 후드 집업",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260429/7bdaf957916d346e59be83b4b77c28fc.gif",
-   "price": 25900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 12,
    "no": 1608,
    "name": "화이트 카모 밀리터리 퍼 오버핏 누빔 패딩",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251125/44baa1bc8af3d7cf0f752ea0bf9df860.gif",
@@ -110,16 +101,7 @@
    "soldout": false
   },
   {
-   "rank": 13,
-   "no": 582,
-   "name": "[묶음할인,3color]부유방 커버 나시",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20241202/5cc9e1cdbba3e43f104d45bf9f782895.jpg",
-   "price": 7900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 14,
+   "rank": 12,
    "no": 1858,
    "name": "[3피스 세트]도트 레이어드 레이스 쓰리피스 세트",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260416/564e3b2716cd2b726c55df8212470091.gif",
@@ -128,20 +110,38 @@
    "soldout": false
   },
   {
+   "rank": 13,
+   "no": 2212,
+   "name": "[3color]루노 워싱 프릴 미디 스커트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260916/3ca52a7400aa5622dcde23dc39901570.gif",
+   "price": 31900,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 14,
+   "no": 1932,
+   "name": "그레이 글로시 스타 프린트 레터링 와이드 코튼 팬츠",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260429/fda75fe5d5720b3d747a21dea5b9fa4b.gif",
+   "price": 25900,
+   "sale": null,
+   "soldout": false
+  },
+  {
    "rank": 15,
-   "no": 1447,
-   "name": "[5color]SES 프린트 레터링 언발 오프숄더 오버핏 맨투맨 티셔츠",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251028/af6f3f8eee2561c8bc38a30bc56c718d.gif",
-   "price": 19800,
+   "no": 2226,
+   "name": "[2color]시티 언발 사선 버클 카라 자켓",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260922/3670dcaf39b8630c51086e0b16c03b8c.gif",
+   "price": 36900,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 16,
-   "no": 2192,
-   "name": "[2color]애니 코튼 미디 야상 자켓",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260910/5dbbfa0449541efc4b2617e46ee3fba6.gif",
-   "price": 47900,
+   "no": 582,
+   "name": "[묶음할인,3color]부유방 커버 나시",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20241202/5cc9e1cdbba3e43f104d45bf9f782895.jpg",
+   "price": 7900,
    "sale": null,
    "soldout": false
   }
