@@ -1,5 +1,5 @@
 {
- "updated": "10.28 18:05",
+ "updated": "10.28 20:13",
  "items": [
   {
    "rank": 1,
@@ -48,15 +48,6 @@
   },
   {
    "rank": 6,
-   "no": 2301,
-   "name": "[투피스 세트]언발 타이 리본  도트 퍼프 투피스 세트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/ac13ce16fbb06100f25b170ac4ccfef3.gif",
-   "price": 35900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 7,
    "no": 2196,
    "name": "[3color]리본 플리츠 카라 셔츠",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260910/6d9f5a17cce241f6ab75fb443d28a2b8.gif",
@@ -65,34 +56,7 @@
    "soldout": false
   },
   {
-   "rank": 8,
-   "no": 1731,
-   "name": "[5color]양털 오버핏 후리스 집업",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260211/9d3dd9b102515bd4ce36ebfedf3b3580.gif",
-   "price": 27900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 9,
-   "no": 1919,
-   "name": "민트 도트 스타 레터링 오버핏 후드 집업",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260429/7bdaf957916d346e59be83b4b77c28fc.gif",
-   "price": 25900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 10,
-   "no": 2165,
-   "name": "[2color]미유나 캐릭터 프린트 도트 레이어드 일체형 긴팔 티셔츠",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260901/c6072867e64220a1f95962cf37937958.gif",
-   "price": 19800,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 11,
+   "rank": 7,
    "no": 2226,
    "name": "[2color]시티 언발 사선 버클 카라 자켓",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260922/3670dcaf39b8630c51086e0b16c03b8c.gif",
@@ -101,7 +65,34 @@
    "soldout": false
   },
   {
-   "rank": 12,
+   "rank": 8,
+   "no": 2301,
+   "name": "[투피스 세트]언발 타이 리본  도트 퍼프 투피스 세트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/ac13ce16fbb06100f25b170ac4ccfef3.gif",
+   "price": 35900,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 9,
+   "no": 1731,
+   "name": "[5color]양털 오버핏 후리스 집업",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260211/9d3dd9b102515bd4ce36ebfedf3b3580.gif",
+   "price": 27900,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 10,
+   "no": 1919,
+   "name": "민트 도트 스타 레터링 오버핏 후드 집업",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260429/7bdaf957916d346e59be83b4b77c28fc.gif",
+   "price": 25900,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 11,
    "no": 2254,
    "name": "[2color]버튼 모직 카라 퍼 포인트 패딩 숏 자켓",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260923/bb656591e6427d16888435c0e7794498.gif",
@@ -110,21 +101,30 @@
    "soldout": false
   },
   {
+   "rank": 12,
+   "no": 2286,
+   "name": "도트 나그랑 리본 포켓 후드 집업",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/69b807fc2ece0648504fd33e6cfb4afe.gif",
+   "price": 35900,
+   "sale": null,
+   "soldout": false
+  },
+  {
    "rank": 13,
+   "no": 2165,
+   "name": "[2color]미유나 캐릭터 프린트 도트 레이어드 일체형 긴팔 티셔츠",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260901/c6072867e64220a1f95962cf37937958.gif",
+   "price": 19800,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 14,
    "no": 2322,
    "name": "로아 베이직 사선 더플 블랙 후드 숏 코트 자켓",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/744fbf6426884510bf1889e32419de3a.gif",
    "price": 47500,
    "sale": 45120,
-   "soldout": false
-  },
-  {
-   "rank": 14,
-   "no": 1754,
-   "name": "[2color]배색 엔젤 스타 자수 프린트 오버핏 후드 티셔츠",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260309/1b761088d7e2ad755ca0828b1b0fb841.gif",
-   "price": 29800,
-   "sale": null,
    "soldout": false
   },
   {
