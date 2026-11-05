@@ -205,6 +205,41 @@ def match_products(products,ez,force=()):
         matched.append({'code':p['code'],'options':o})
     return matched,diagnostics
 
+def merge_extra(products,extra):
+    """Replace a confirmed option list, including an explicit empty list.
+
+    Validate the entire snapshot before changing any product. Missing or
+    malformed data is not evidence that an option was deleted or still valid.
+    """
+    if not isinstance(extra,list):
+        raise ValueError('ERR_OPTION_SNAPSHOT_INVALID: 1개')
+    validated={};invalid=0
+    for x in extra:
+        if not isinstance(x,dict):
+            invalid+=1;continue
+        code=x.get('code');name=x.get('name');opts=x.get('opts')
+        if (not isinstance(code,str) or not code.strip() or not isinstance(opts,list)
+                or not isinstance(name,str) or not name.strip()
+                or any(not isinstance(opt,str) or not opt.strip() for opt in opts)):
+            invalid+=1;continue
+        snapshot=(name,list(opts))
+        if code in validated and validated[code]!=snapshot:
+            invalid+=1;continue
+        validated[code]=snapshot
+    if invalid:
+        raise ValueError(f'ERR_OPTION_SNAPSHOT_INVALID: {invalid}개')
+    bycode={p['code']:p for p in products}
+    added=updated=0
+    for code,(name,opts) in validated.items():
+        cur=bycode.get(code)
+        if cur is not None:
+            if cur.get('opts')!=opts or cur.get('name')!=name:
+                cur.update(opts=list(opts),name=name,nn=norm_name(name));updated+=1
+        else:
+            cur={'code':code,'name':name,'nn':norm_name(name),'opts':list(opts)}
+            products.append(cur);bycode[code]=cur;added+=1
+    return added,updated,0
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--ez', required=True)
@@ -217,26 +252,19 @@ def main():
     map_path = os.path.join(a.out, 'map.json')
     if a.cafe24:
         products = read_cafe24(a.cafe24)
-        _write_json(map_path,products,ensure_ascii=False)
     elif os.path.exists(map_path):
         products = _read_json(map_path)
     else:
         sys.exit('map.json 없음: 처음엔 --cafe24 상품CSV 필요')
-    if a.extra and os.path.exists(a.extra):
-        bycode = {p['code']: p for p in products}
-        added = updated = 0
-        for x in _read_json(a.extra):
-            if not (x.get('code') and x.get('opts')):
-                continue
-            if x['code'] in bycode:                                  # 이미 있는 상품 → 옵션/상품명 갱신 (옵션 변경 반영)
-                cur = bycode[x['code']]
-                if cur.get('opts') != x['opts'] or cur.get('name') != x['name']:
-                    cur['opts'] = x['opts']; cur['name'] = x['name']; cur['nn'] = norm_name(x['name']); updated += 1
-            else:
-                products.append({'code': x['code'], 'name': x['name'], 'nn': norm_name(x['name']), 'opts': x['opts']}); added += 1
-        if added or updated:
-            _write_json(map_path,products,ensure_ascii=False)
-            print(f'map.json 신상 {added}개 추가 / 옵션 갱신 {updated}개')
+    added=updated=0
+    if a.extra:
+        try:extra=_read_json(a.extra)
+        except (OSError,ValueError):raise ValueError('ERR_OPTION_SNAPSHOT_INVALID: 1개') from None
+        added,updated,_=merge_extra(products,extra)
+    if a.cafe24 or added or updated:
+        _write_json(map_path,products,ensure_ascii=False)
+    if added or updated:
+        print(f'map.json 신상 {added}개 추가 / 옵션 갱신 {updated}개')
 
     ez = read_ezadmin(a.ez)
 
