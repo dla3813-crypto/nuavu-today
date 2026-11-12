@@ -1,0 +1,191 @@
+<!-- 참고 : 뉴상품관리 전용 모듈입니다. 뉴상품관리 이외의 곳에서 사용하면 정상동작하지 않습니다. -->
+<!-- 누아브 추가구성상품 B안(가로 카드 + 담기 시 옵션 펼침) 2026-11-12. 카페24 변수·모듈 구조는 그대로, 옵션 표(.option)·옵션선택 버튼(.selectButton)만 스크립트가 카드 아래 패널로 옮긴다 -->
+        <div class="productSet ec-base-fold theme1 selected eToggle nv-addon" module="product_addproduct">
+            <div class="title">
+                <h2>같이 입으면 예뻐요 <span class="nv-spark">✨</span><small>추가구성상품 · 담기를 누르면 옵션이 열려요</small></h2>
+            </div>
+            <div class="contents">
+                <ul class="product">
+                    <li>
+                        <div class="information">
+                            <div class="thumbnail"><a href="/product/detail.html?product_no={$product_no}"><img src="{$product_image}" alt="" id="{$image_id}"></a></div>
+                            <p class="name">{$product_name}</p>
+                            <p class="price {$product_price_del}">{$product_price}<span id="span_product_tax_type_text">{$product_tax_type_text}</span></p>
+                            <p class="salePrice {$product_sale_price_display|display}">{$product_sale_price}</p>
+                            <button type="button" class="nv-addon-add">+ 담기</button>
+                        </div>
+                        <div class="option">
+                            <table border="1" summary="">
+                            <caption>옵션 정보</caption>
+                            <colgroup>
+                                <col style="width:105px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr module="product_addoption">
+                                    <th scope="row">{$add_option_name}</th>
+                                    <td>
+                                        {$form.add_option}
+                                        <span class="byte" title="현재글자수/최대글자수">[ <strong class="length">0</strong> / {$option_maxlength} ]</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_option">
+                                <tr>
+                                    <th scope="row">{$option_name}</th>
+                                    <td>{$form.option}<p class="value">{$option_desc}</p></td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">QTY</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="20" height="18">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="20" height="18">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_noneoption">
+                                <tr>
+                                    <th scope="row">상품선택</th>
+                                    <td>{$form.noneoption}</td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">QTY</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="20" height="18">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="20" height="18">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                       <div class="selectButton {$add_option_push_button_display|display}" id="{$add_option_push_button_id}"><button type="button" class="btnStrong" onclick="{$add_action_push_button}">옵션 선택</button></div>
+                    </li>
+                    <li>
+                        <div class="information">
+                            <div class="thumbnail"><a href="/product/detail.html?product_no={$product_no}"><img src="{$product_image}" alt="" id="{$image_id}"></a></div>
+                            <p class="name">{$product_name}</p>
+                            <p class="price {$product_price_del}">{$product_price}<span id="span_product_tax_type_text">{$product_tax_type_text}</span></p>
+                            <p class="salePrice {$product_sale_price_display|display}">{$product_sale_price}</p>
+                            <button type="button" class="nv-addon-add">+ 담기</button>
+                        </div>
+                        <div class="option">
+                           <table border="1" summary="">
+                            <caption>옵션 정보</caption>
+                            <colgroup>
+                                <col style="width:105px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr module="product_addoption">
+                                    <th scope="row">{$add_option_name}</th>
+                                    <td>
+                                        {$form.add_option}
+                                        <span class="byte" title="현재글자수/최대글자수">[ <strong class="length">0</strong> / {$option_maxlength} ]</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_option">
+                                <tr>
+                                    <th scope="row">{$option_name}</th>
+                                    <td>{$form.option}<p class="value">{$option_desc}</p></td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">QTY</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="20" height="18">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="20" height="18">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_noneoption">
+                                <tr>
+                                    <th scope="row">상품선택</th>
+                                    <td>{$form.noneoption}</td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">QTY</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="20" height="18">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="20" height="18">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                       <div class="selectButton {$add_option_push_button_display|display}" id="{$add_option_push_button_id}"><button type="button" class="btnStrong" onclick="{$add_action_push_button}">옵션 선택</button></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+<style>
+.nv-addon{border:0 !important;background:#fff;margin:14px 0 6px}
+.nv-addon > .title{border:0 !important;background:#fff !important;padding:4px 14px 8px !important;min-height:0 !important}
+.nv-addon > .title h2{font-size:14px !important;font-weight:700 !important;color:#111 !important;line-height:1.3;text-align:left;padding:0 !important;background:none !important}
+.nv-addon > .title h2 small{display:block;font-size:11px;font-weight:400;color:#999;margin-top:3px}
+.nv-addon > .title .nv-spark{font-size:13px}
+.nv-addon > .contents{padding:0 14px 6px !important;border:0 !important;background:#fff !important}
+.nv-addon ul.product{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 0 6px;margin:0;list-style:none;border:0 !important}
+.nv-addon ul.product::-webkit-scrollbar{display:none}
+.nv-addon ul.product > li{flex:0 0 auto;width:126px;border:1px solid #e5e5e5;border-radius:8px;overflow:hidden;padding:0 !important;margin:0 !important;background:#fff}
+.nv-addon ul.product > li.nv-open{border-color:#111}
+.nv-addon ul.product > li .information{padding:0 !important;margin:0 !important;border:0 !important;overflow:visible}
+.nv-addon ul.product > li .thumbnail{width:100% !important;height:150px;margin:0 !important;float:none !important;overflow:hidden;background:#f3f3f3}
+.nv-addon ul.product > li .thumbnail img{width:100% !important;height:100% !important;object-fit:cover;display:block}
+.nv-addon ul.product > li .name{margin:8px 9px 3px !important;font-size:11px !important;line-height:1.35;color:#333;height:2.7em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;padding:0 !important}
+.nv-addon ul.product > li .price{margin:0 9px !important;font-size:12px !important;font-weight:700;color:#111;padding:0 !important}
+.nv-addon ul.product > li .price.strike{font-weight:400;color:#aaa;text-decoration:line-through;font-size:11px !important}
+.nv-addon ul.product > li .salePrice{margin:0 9px !important;font-size:12px !important;font-weight:700;color:#111;padding:0 !important}
+.nv-addon .nv-addon-add{display:block;width:calc(100% - 18px);margin:7px 9px 9px;height:27px;border:1px solid #111;border-radius:4px;background:#fff;color:#111;font-size:11px;cursor:pointer;-webkit-appearance:none;padding:0}
+.nv-addon li.nv-open .nv-addon-add{background:#111;color:#fff}
+.nv-addon-panels{margin-top:4px}
+.nv-addon-panel{display:none;border:1px solid #111;border-radius:8px;padding:12px;margin-top:8px;position:relative;background:#fff}
+.nv-addon-panel.on{display:block}
+.nv-addon-panel:before{content:"";position:absolute;top:-7px;left:50px;width:12px;height:12px;background:#fff;border-left:1px solid #111;border-top:1px solid #111;transform:rotate(45deg)}
+.nv-addon-panel .ttl{margin:0 0 8px;font-size:12px;font-weight:700;color:#111}
+.nv-addon-panel .option table{width:100%;border:0 !important;border-collapse:collapse}
+.nv-addon-panel .option th{display:none}
+.nv-addon-panel .option td{display:block;padding:0 0 6px !important;border:0 !important}
+.nv-addon-panel .option select{width:100% !important;height:34px;border:1px solid #e3e3e3;border-radius:3px;font-size:11px;color:#555;background:#fff}
+.nv-addon-panel .option .value{margin:4px 0 0;font-size:11px;color:#888}
+.nv-addon-panel .option tr.quantity td{padding-top:2px !important}
+.nv-addon-panel .option .ec-base-qty{display:inline-flex;align-items:center;border:1px solid #e3e3e3;border-radius:3px;height:28px;overflow:hidden}
+.nv-addon-panel .option .ec-base-qty input{width:34px !important;height:26px !important;border:0 !important;border-left:1px solid #eee !important;border-right:1px solid #eee !important;text-align:center;font-size:12px}
+.nv-addon-panel .option .ec-base-qty img{width:28px;height:26px;padding:4px 7px;box-sizing:border-box;cursor:pointer}
+.nv-addon-panel .selectButton{margin-top:6px}
+.nv-addon-panel .selectButton .btnStrong{width:100%;height:36px;background:#111;color:#fff;border:0;font-size:12px}
+</style>
+<script>
+(function(){
+  var box=document.querySelector('.nv-addon'); if(!box) return;
+  var ul=box.querySelector('ul.product'); if(!ul) return;
+  var lis=[].slice.call(ul.children); if(!lis.length) return;
+  var panels=document.createElement('div'); panels.className='nv-addon-panels'; ul.parentNode.insertBefore(panels, ul.nextSibling);
+  lis.forEach(function(li,i){
+    var p=document.createElement('div'); p.className='nv-addon-panel';
+    var ttl=document.createElement('p'); ttl.className='ttl'; var nm=li.querySelector('.name'); ttl.textContent=(nm?nm.textContent.trim():'')+' 옵션'; p.appendChild(ttl);
+    ['.option','.selectButton'].forEach(function(s){ var e=li.querySelector(s); if(e) p.appendChild(e); });   /* 옵션 표·옵션선택 버튼을 카드 아래 패널로 이동(엘리먼트 그대로라 카페24 동작 유지) */
+    panels.appendChild(p);
+    var btn=li.querySelector('.nv-addon-add'); if(!btn) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var open=!li.classList.contains('nv-open');
+      lis.forEach(function(o,j){ o.classList.remove('nv-open'); panels.children[j].classList.remove('on'); var b=o.querySelector('.nv-addon-add'); if(b) b.textContent='+ 담기'; });
+      if(open){ li.classList.add('nv-open'); p.classList.add('on'); btn.textContent='✓ 옵션 선택 중'; p.scrollIntoView({block:'nearest',behavior:'smooth'}); }
+    });
+  });
+  if(lis.length===1){ lis[0].querySelector('.nv-addon-add').click(); }   /* 추가구성상품이 1개면 바로 펼쳐둔다 */
+})();
+</script>
+<!-- //참고 -->
