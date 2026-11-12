@@ -1,5 +1,5 @@
 {
- "updated": "11.12 16:22",
+ "updated": "11.12 18:22",
  "items": [
   {
    "rank": 1,
@@ -21,51 +21,15 @@
   },
   {
    "rank": 3,
-   "no": 2269,
-   "name": "[2color]우나 기모 하이넥 버튼 오버핏 후드집업",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/a29c114af9e3e8da2ef9b81f640eb3ba.gif",
-   "price": 39800,
+   "no": 2340,
+   "name": "[3color]토리 스트라이프 버튼 니트 비니",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261103/e9dd1e46226e624efd32fca8b1a4e188.gif",
+   "price": 13900,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 4,
-   "no": 2317,
-   "name": "[긴팔+블라우스 세트]이누 플라워 패턴 버튼 카라 퍼프 블라우스 투피스 세트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/18c6f3f91c837875a86a41c3eec94b69.gif",
-   "price": 35500,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 5,
-   "no": 2329,
-   "name": "[2color]바인 후드 버튼 후리스 후드 집업",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/a3c8aa30c6eaa8b2c917ba260d22f8d1.gif",
-   "price": 38500,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 6,
-   "no": 2314,
-   "name": "[기획특가,5color]무지 웰론 스트링 후드 경량 패딩",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/d35d663080e8d484cd73775b70f931d8.gif",
-   "price": 27900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 7,
-   "no": 1694,
-   "name": "[2color]스타 버니 패치 코튼 와이드 롱 팬츠",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260122/80b20ae89a20508ef7f423bb3f2f4cb5.gif",
-   "price": 37900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 8,
    "no": 2252,
    "name": "[긴팔 세트 투피스][3color]윈터 모직 도트 카라 폴라 투피스 세트",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260922/d69d524edcc333b1dea9bde9ca8a8d02.gif",
@@ -74,20 +38,56 @@
    "soldout": false
   },
   {
+   "rank": 5,
+   "no": 2269,
+   "name": "[2color]우나 기모 하이넥 버튼 오버핏 후드집업",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/a29c114af9e3e8da2ef9b81f640eb3ba.gif",
+   "price": 39800,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 6,
+   "no": 2329,
+   "name": "[2color]바인 후드 버튼 후리스 후드 집업",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/a3c8aa30c6eaa8b2c917ba260d22f8d1.gif",
+   "price": 38500,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 7,
+   "no": 2254,
+   "name": "[2color]버튼 모직 카라 퍼 포인트 패딩 숏 자켓",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260923/bb656591e6427d16888435c0e7794498.gif",
+   "price": 59800,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 8,
+   "no": 2301,
+   "name": "[투피스 세트]언발 타이 리본  도트 퍼프 투피스 세트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/ac13ce16fbb06100f25b170ac4ccfef3.gif",
+   "price": 35900,
+   "sale": null,
+   "soldout": false
+  },
+  {
    "rank": 9,
-   "no": 2298,
-   "name": "[4color]료이 버튼 베이직 후드 자켓",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261027/4caac42b6a9c2677a97013a3a1bc5525.gif",
-   "price": 34700,
+   "no": 1694,
+   "name": "[2color]스타 버니 패치 코튼 와이드 롱 팬츠",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260122/80b20ae89a20508ef7f423bb3f2f4cb5.gif",
+   "price": 37900,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 10,
-   "no": 2227,
-   "name": "그레이 화이트 레이스 미디 스커트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260917/f44cb9f4137734507621113fe1d15018.gif",
-   "price": 29800,
+   "no": 2222,
+   "name": "[2color,투피스]어텀 모직 카라 플라워 패턴 긴팔 투피스 자켓 세트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260917/ced5e7bd333d9383a24894a7c54215d7.gif",
+   "price": 33900,
    "sale": null,
    "soldout": false
   },
@@ -102,6 +102,33 @@
   },
   {
    "rank": 12,
+   "no": 2298,
+   "name": "[4color]료이 버튼 베이직 후드 자켓",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261027/4caac42b6a9c2677a97013a3a1bc5525.gif",
+   "price": 34700,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 13,
+   "no": 1919,
+   "name": "민트 도트 스타 레터링 오버핏 후드 집업",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260429/7bdaf957916d346e59be83b4b77c28fc.gif",
+   "price": 25900,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 14,
+   "no": 1687,
+   "name": "[기모]음표 도트 레이어드 포인트 롱 팬츠",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260331/9d77c168d3e6de88d02254e9c1f85ef3.gif",
+   "price": 19800,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 15,
    "no": 1675,
    "name": "[스커트 일체형]스트라이프 프릴 레이어드 미디 코튼 스커트 레이어드 일체형 롱 팬츠",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260121/f928d9f5ae54afd906477ef807d7a0a5.gif",
@@ -110,38 +137,11 @@
    "soldout": false
   },
   {
-   "rank": 13,
-   "no": 1252,
-   "name": "레이스 프릴 롱 스커트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260121/a40855fbd3e90118c8703eb2501fbdf8.gif",
-   "price": 21900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 14,
-   "no": 1697,
-   "name": "[2color]하이넥 버클 후드 하프 코트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260122/6b6658c8a210a5a430360e5f6617140e.gif",
-   "price": 63900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 15,
+   "rank": 16,
    "no": 582,
    "name": "[묶음할인,3color]부유방 커버 나시",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20241202/5cc9e1cdbba3e43f104d45bf9f782895.jpg",
    "price": 7900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 16,
-   "no": 1919,
-   "name": "민트 도트 스타 레터링 오버핏 후드 집업",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260429/7bdaf957916d346e59be83b4b77c28fc.gif",
-   "price": 25900,
    "sale": null,
    "soldout": false
   }
