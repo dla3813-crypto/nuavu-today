@@ -1,0 +1,53 @@
+<!-- 누아브 관련상품(WITH ITEM) B안: 가로 스크롤 카드 — 2026-11-12. 모바일 product/detail.html 에서 구매 버튼 바로 아래에 import. 카드 터치 → 상품 페이지 -->
+<div module="product_relation" class="nv-rel">
+    <!--@css(/css/module/product/relation_swipe.css)-->
+    <!--
+        $count = 10
+        $swipe = no
+        $line = 2
+        $grid = 5
+    -->
+    <h2>같이 입으면 예뻐요 <span class="nv-spark">✨</span><small>WITH ITEM · 함께 코디하기 좋은 아이템</small></h2>
+    <ul class="grid5 nv-rel-row" module="product_relationlist">
+        <li class="item">
+            <div class="thumbnail"><a href="{$link_product_detail}"><img src="{$img_small}" alt="{$seo_alt_tag}" class="thumb" /></a></div>
+            <div class="information">
+                <p class="name"><a href="{$link_product_detail}">{$name}</a></p>
+                <p class="price {$product_sale_strike}">{$disp_product_price}{$product_tax_type_text}</p>
+                <p class="price sale {$sale_price_display|display}">{$disp_sale_price}</p>
+                <a class="nv-rel-go" href="{$link_product_detail}">보러가기</a>
+            </div>
+        </li>
+    </ul>
+</div>
+<style>
+.nv-rel{margin:16px 0 4px;padding:0 14px}
+.nv-rel h2{margin:0 0 10px;font-size:14px;font-weight:700;color:#111;line-height:1.3;text-align:left;border:0;padding:0;background:none}
+.nv-rel h2 small{display:block;font-size:11px;font-weight:400;color:#999;margin-top:3px}
+.nv-rel h2 .nv-spark{font-size:13px}
+.nv-rel ul.nv-rel-row{display:flex !important;gap:10px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 0 8px;margin:0 !important;list-style:none;width:auto !important}
+.nv-rel ul.nv-rel-row::-webkit-scrollbar{display:none}
+.nv-rel ul.nv-rel-row > li.item{flex:0 0 auto;width:126px !important;margin:0 !important;padding:0 !important;float:none !important;border:1px solid #e5e5e5;border-radius:8px;overflow:hidden;background:#fff;position:relative}
+.nv-rel li.item .thumbnail{width:100% !important;height:150px;margin:0 !important;overflow:hidden;background:#f3f3f3;position:relative}
+.nv-rel li.item .thumbnail img{width:100% !important;height:100% !important;object-fit:cover;display:block}
+.nv-rel li.item .information{padding:8px 9px 9px !important;margin:0 !important;text-align:left}
+.nv-rel li.item .name{margin:0 0 3px !important;padding:0 !important;font-size:11px !important;line-height:1.35;height:2.7em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.nv-rel li.item .name a{color:#333;text-decoration:none}
+.nv-rel li.item .price{margin:0 !important;padding:0 !important;font-size:12px !important;font-weight:700;color:#111;line-height:1.3}
+.nv-rel li.item .price.strike{font-weight:400;color:#aaa;text-decoration:line-through;font-size:11px !important}
+.nv-rel li.item .price.displaynone{display:none}
+.nv-rel .nv-rel-go{display:flex;align-items:center;justify-content:center;margin-top:7px;height:26px;border:1px solid #111;border-radius:4px;font-size:11px;color:#111;text-decoration:none;background:#fff}
+.nv-rel .nv-today-badge{position:absolute;left:6px;top:6px;padding:3px 6px;border-radius:4px;background:#ff5c9a;color:#fff;font-size:10px;font-weight:700;line-height:1;z-index:1}
+</style>
+<script>
+(function(){
+  /* 오늘출발 배지: today_codes.json 기준 (상품번호 → 카페24 상품코드 26진수 변환) */
+  var box=document.querySelector('.nv-rel'); if(!box) return;
+  var items=box.querySelectorAll('li.item'); if(!items.length){ box.style.display='none'; return; }
+  function toCode(no){ var n=parseInt(no,10),s='',A='ABCDEFGHIJKLMNOPQRSTUVWXYZ'; do{ s=A[n%26]+s; n=Math.floor(n/26); }while(n>0); while(s.length<7) s='0'+s; return 'P'+s; }
+  fetch('https://dla3813-crypto.github.io/nuavu-today/today_codes.json?v='+Math.floor(Date.now()/600000),{cache:'no-cache'}).then(function(r){return r.ok?r.json():[]}).then(function(codes){
+    var set={}; (codes||[]).forEach(function(c){ set[c]=1; });
+    items.forEach(function(li){ var a=li.querySelector('a[href]'); var m=a&&a.getAttribute('href').match(/product_no=(\d+)|\/(\d+)\/category\//); var no=m&&(m[1]||m[2]); if(no&&set[toCode(no)]){ var b=document.createElement('span'); b.className='nv-today-badge'; b.textContent='오늘출발'; li.querySelector('.thumbnail').appendChild(b); } });
+  }).catch(function(){});
+})();
+</script>

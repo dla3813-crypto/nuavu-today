@@ -1,0 +1,68 @@
+<!-- 누아브 관련상품(WITH ITEM) B안: 가로 스크롤 카드 — 2026-11-12. PC detail-right-box.html 구매 버튼 아래에 import (원래는 detail-left-box.html 하단) -->
+<div module="product_relation" id="prdRelated" class="nv-rel">
+    <!--@css(/css/module/product/relation.css)-->
+    <div class="relation">
+        <h3>같이 입으면 예뻐요 <span class="nv-spark">✨</span><small>WITH ITEM · 함께 코디하기 좋은 아이템</small></h3>
+        <div module="product_relationlist" class="nv-rel-wrap">
+            <ul class="prdList nv-rel-row">
+                <li class="item">
+                    <div class="box">
+                        <a href="{$link_product_detail}" class="nv-rel-thumb"><img src="{$img_small}" alt="{$seo_alt_tag}" class="thumb" /></a>
+                        <p class="nv-rel-name"><a href="{$link_product_detail}">{$name}</a></p>
+                        <ul class="nv-rel-price">
+                            <li><strong class="{$product_sale_strike}">{$disp_product_price}{$product_tax_type_text}</strong></li>
+                            <li class="salePrice {$sale_price_display|display}">{$disp_sale_price}</li>
+                        </ul>
+                        <a class="nv-rel-go" href="{$link_product_detail}">보러가기</a>
+                    </div>
+                </li>
+            </ul>
+            <button type="button" class="nv-rel-arrow prev" aria-label="이전">‹</button>
+            <button type="button" class="nv-rel-arrow next" aria-label="다음">›</button>
+        </div>
+    </div>
+</div>
+<style>
+.nv-rel{margin:18px 0 0;padding:0}
+.nv-rel .relation{border:0 !important;padding:0 !important;margin:0 !important;background:none !important}
+.nv-rel h3{margin:0 0 10px !important;padding:0 !important;font-size:13px !important;font-weight:700 !important;color:#111 !important;line-height:1.3;text-align:left !important;border:0 !important;background:none !important}
+.nv-rel h3 small{display:block;font-size:11px;font-weight:400;color:#999;margin-top:3px}
+.nv-rel h3 .nv-spark{font-size:12px}
+.nv-rel .nv-rel-wrap{position:relative}
+.nv-rel ul.nv-rel-row{display:flex !important;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;scrollbar-width:none;padding:2px 0 6px !important;margin:0 !important;list-style:none;width:auto !important}
+.nv-rel ul.nv-rel-row::-webkit-scrollbar{display:none}
+.nv-rel ul.nv-rel-row > li.item{flex:0 0 auto;width:118px !important;margin:0 !important;padding:0 !important;float:none !important;border:1px solid #e5e5e5;border-radius:8px;overflow:hidden;background:#fff;position:relative;height:auto !important}
+.nv-rel li.item .box{padding:0 !important;margin:0 !important;border:0 !important;text-align:left;width:auto !important}
+.nv-rel li.item .nv-rel-thumb{display:block;width:100%;height:140px;overflow:hidden;background:#f3f3f3;position:relative}
+.nv-rel li.item .nv-rel-thumb img{width:100% !important;height:100% !important;object-fit:cover;display:block;max-width:none !important}
+.nv-rel li.item .nv-rel-name{margin:8px 8px 3px !important;padding:0 !important;font-size:11px !important;line-height:1.35;height:2.7em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.nv-rel li.item .nv-rel-name a{color:#333 !important;text-decoration:none;font-size:11px}
+.nv-rel li.item ul.nv-rel-price{margin:0 8px !important;padding:0 !important;list-style:none;display:block !important}
+.nv-rel li.item ul.nv-rel-price li{margin:0 !important;padding:0 !important;font-size:12px !important;font-weight:700;color:#111 !important;line-height:1.3;border:0 !important;width:auto !important;float:none !important}
+.nv-rel li.item ul.nv-rel-price li strong{font-size:12px !important;color:#111 !important;font-weight:700}
+.nv-rel li.item ul.nv-rel-price li strong.strike{font-weight:400;color:#aaa !important;text-decoration:line-through;font-size:11px !important}
+.nv-rel li.item ul.nv-rel-price li.displaynone{display:none}
+.nv-rel .nv-rel-go{display:flex;align-items:center;justify-content:center;margin:7px 8px 8px;height:26px;border:1px solid #111;border-radius:4px;font-size:11px;color:#111 !important;text-decoration:none;background:#fff}
+.nv-rel .nv-rel-go:hover{background:#111;color:#fff !important}
+.nv-rel .nv-today-badge{position:absolute;left:6px;top:6px;padding:3px 6px;border-radius:4px;background:#ff5c9a;color:#fff;font-size:10px;font-weight:700;line-height:1;z-index:1}
+.nv-rel .nv-rel-arrow{position:absolute;top:62px;width:24px;height:24px;border-radius:50%;border:1px solid #ddd;background:rgba(255,255,255,.95);color:#111;font-size:16px;line-height:22px;text-align:center;cursor:pointer;padding:0;z-index:2;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.nv-rel .nv-rel-arrow.prev{left:-6px}
+.nv-rel .nv-rel-arrow.next{right:-6px}
+.nv-rel .nv-rel-arrow[disabled]{opacity:.25;cursor:default}
+</style>
+<script>
+(function(){
+  var box=document.querySelector('.nv-rel'); if(!box) return;
+  var row=box.querySelector('ul.nv-rel-row'); var items=box.querySelectorAll('li.item'); if(!row||!items.length){ box.style.display='none'; return; }
+  /* 좌우 화살표 (PC 마우스용) */
+  var prev=box.querySelector('.nv-rel-arrow.prev'), next=box.querySelector('.nv-rel-arrow.next');
+  function upd(){ if(!prev) return; prev.disabled=row.scrollLeft<=2; next.disabled=row.scrollLeft+row.clientWidth>=row.scrollWidth-2; var need=row.scrollWidth>row.clientWidth+4; prev.style.display=next.style.display=need?'':'none'; }
+  if(prev){ prev.addEventListener('click',function(){ row.scrollLeft-=126; }); next.addEventListener('click',function(){ row.scrollLeft+=126; }); row.addEventListener('scroll',upd); window.addEventListener('resize',upd); setTimeout(upd,300); }
+  /* 오늘출발 배지: today_codes.json 기준 */
+  function toCode(no){ var n=parseInt(no,10),s='',A='ABCDEFGHIJKLMNOPQRSTUVWXYZ'; do{ s=A[n%26]+s; n=Math.floor(n/26); }while(n>0); while(s.length<7) s='0'+s; return 'P'+s; }
+  fetch('https://dla3813-crypto.github.io/nuavu-today/today_codes.json?v='+Math.floor(Date.now()/600000),{cache:'no-cache'}).then(function(r){return r.ok?r.json():[]}).then(function(codes){
+    var set={}; (codes||[]).forEach(function(c){ set[c]=1; });
+    items.forEach(function(li){ var a=li.querySelector('a[href]'); var m=a&&a.getAttribute('href').match(/product_no=(\d+)|\/(\d+)\/category\//); var no=m&&(m[1]||m[2]); if(no&&set[toCode(no)]){ var b=document.createElement('span'); b.className='nv-today-badge'; b.textContent='오늘출발'; li.querySelector('.nv-rel-thumb').appendChild(b); } });
+  }).catch(function(){});
+})();
+</script>

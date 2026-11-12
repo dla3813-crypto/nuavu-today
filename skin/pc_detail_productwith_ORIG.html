@@ -1,0 +1,32 @@
+<div module="product_relation" id="prdRelated" >
+    <!--@css(/css/module/product/relation.css)-->
+  
+
+    <div class="relation">
+        <h3>WITH ITEM</h3>
+        <div module="product_relationlist">
+            <ul class="prdList">
+                <li class="item">
+                    <div class="box">
+                        <a href="{$link_product_detail}"><img src="{$img_small}" alt="{$seo_alt_tag}" class="thumb" /></a>
+                        <p><a href="{$link_product_detail}" style="font-size:11px;color:#000">{$name}</a></p>
+                        <ul>
+                            <li><strong class="{$product_sale_strike}"  style="font-size:11px;color:#9e9e9e">{$disp_product_price}{$product_tax_type_text}</strong></li>
+                            <li class="salePrice {$sale_price_display|display}" style="font-size:11px;color:#9e9e9e">{$disp_sale_price}</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="item">
+                     <div class="box">
+                        <a href="{$link_product_detail}"><img src="{$img_small}" alt="{$seo_alt_tag}" class="thumb" /></a>
+                        <p><a href="{$link_product_detail}" style="font-size:11px;color:#000">{$name}</a></p>
+                        <ul>
+                            <li><strong class="{$product_sale_strike}"  style="font-size:11px;color:#9e9e9e">{$disp_product_price}{$product_tax_type_text}</strong></li>
+                            <li class="salePrice {$sale_price_display|display}" style="font-size:11px;color:#9e9e9e">{$disp_sale_price}</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
