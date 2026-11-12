@@ -1,0 +1,128 @@
+<!-- 참고 : 뉴상품관리 전용 모듈입니다. 뉴상품관리 이외의 곳에서 사용하면 정상동작하지 않습니다. -->
+        <div class="productSet ec-base-fold theme1 selected eToggle" module="product_addproduct">
+            <div class="title">
+                <h2>추가구성상품</h2>
+            </div>
+            <div class="contents">
+                <ul class="product">
+                    <li>
+                        <div class="information">
+                            <div class="thumbnail"><a href="/product/detail.html?product_no={$product_no}"><img src="{$product_image}" alt="" id="{$image_id}"></a></div>
+                            <p class="name">{$product_name}</p>
+                            <p class="price {$product_price_del}">{$product_price}<span id="span_product_tax_type_text">{$product_tax_type_text}</span></p>
+                            <p class="salePrice {$product_sale_price_display|display}">{$product_sale_price}</p>
+                        </div>
+                        <div class="option">
+                            <table border="1" summary="">
+                            <caption>옵션 정보</caption>
+                            <colgroup>
+                                <col style="width:105px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr module="product_addoption">
+                                    <th scope="row">{$add_option_name}</th>
+                                    <td>
+                                        {$form.add_option}
+                                        <span class="byte" title="현재글자수/최대글자수">[ <strong class="length">0</strong> / {$option_maxlength} ]</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_option">
+                                <tr>
+                                    <th scope="row">{$option_name}</th>
+                                    <td>{$form.option}<p class="value">{$option_desc}</p></td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">QTY</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="20" height="18">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="20" height="18">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_noneoption">
+                                <tr>
+                                    <th scope="row">상품선택</th>
+                                    <td>{$form.noneoption}</td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">QTY</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="20" height="18">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="20" height="18">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                       <div class="selectButton {$add_option_push_button_display|display}" id="{$add_option_push_button_id}"><button type="button" class="btnStrong" onclick="{$add_action_push_button}">옵션 선택</button></div>
+                    </li>
+                    <li>
+                        <div class="information">
+                            <div class="thumbnail"><a href="/product/detail.html?product_no={$product_no}"><img src="{$product_image}" alt="" id="{$image_id}"></a></div>
+                            <p class="name">{$product_name}</p>
+                            <p class="price {$product_price_del}">{$product_price}<span id="span_product_tax_type_text">{$product_tax_type_text}</span></p>
+                            <p class="salePrice {$product_sale_price_display|display}">{$product_sale_price}</p>
+                        </div>
+                        <div class="option">
+                           <table border="1" summary="">
+                            <caption>옵션 정보</caption>
+                            <colgroup>
+                                <col style="width:105px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr module="product_addoption">
+                                    <th scope="row">{$add_option_name}</th>
+                                    <td>
+                                        {$form.add_option}
+                                        <span class="byte" title="현재글자수/최대글자수">[ <strong class="length">0</strong> / {$option_maxlength} ]</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_option">
+                                <tr>
+                                    <th scope="row">{$option_name}</th>
+                                    <td>{$form.option}<p class="value">{$option_desc}</p></td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">QTY</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="20" height="18">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="20" height="18">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_noneoption">
+                                <tr>
+                                    <th scope="row">상품선택</th>
+                                    <td>{$form.noneoption}</td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">QTY</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="20" height="18">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="20" height="18">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                       <div class="selectButton {$add_option_push_button_display|display}" id="{$add_option_push_button_id}"><button type="button" class="btnStrong" onclick="{$add_action_push_button}">옵션 선택</button></div>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- //참고 -->
