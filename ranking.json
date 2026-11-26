@@ -1,5 +1,5 @@
 {
- "updated": "11.26 21:29",
+ "updated": "11.26 23:29",
  "items": [
   {
    "rank": 1,
@@ -21,19 +21,19 @@
   },
   {
    "rank": 3,
-   "no": 2393,
-   "name": "[2color]미즈 체크 안감 더블 버튼 후드 누빔 야상 패딩",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261114/5543667b8cfe59cecfe56a9ea5669a5a.gif",
-   "price": 79500,
+   "no": 2408,
+   "name": "[2color]리츠 라운드 카라 리본 포켓 더블 버튼 모직 숏 자켓",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261115/b2378ead84d5a608a8aa7310a001bdda.gif",
+   "price": 53500,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 4,
-   "no": 2322,
-   "name": "로아 베이직 사선 더플 블랙 후드 숏 코트 자켓",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/744fbf6426884510bf1889e32419de3a.gif",
-   "price": 47500,
+   "no": 2254,
+   "name": "[2color]버튼 모직 카라 퍼 포인트 패딩 숏 자켓",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260923/bb656591e6427d16888435c0e7794498.gif",
+   "price": 59800,
    "sale": null,
    "soldout": false
   },
@@ -48,6 +48,42 @@
   },
   {
    "rank": 6,
+   "no": 2322,
+   "name": "로아 베이직 사선 더플 블랙 후드 숏 코트 자켓",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/744fbf6426884510bf1889e32419de3a.gif",
+   "price": 47500,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 7,
+   "no": 1641,
+   "name": "싱글 버튼 오버핏 후드 코트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251218/feed8add7af947eb2507a7733b4fbc97.gif",
+   "price": 52300,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 8,
+   "no": 2212,
+   "name": "[3color]루노 워싱 프릴 미디 스커트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260916/3ca52a7400aa5622dcde23dc39901570.gif",
+   "price": 31900,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 9,
+   "no": 2410,
+   "name": "[2color]토와 더블 버튼 코듀로이 하프 코트 자켓",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261116/6348c1041199fdba9e98a5258eeb5e3a.gif",
+   "price": 52500,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 10,
    "no": 2347,
    "name": "[9color]다나 단추 포인트 니트 버킷 비니",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261103/fc32543802ef216a7b0cc347080586b4.gif",
@@ -56,43 +92,16 @@
    "soldout": false
   },
   {
-   "rank": 7,
-   "no": 2420,
-   "name": "[2color]키에 라운드 카라 싱글 버튼 모직 하프 코트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261117/b92c8925e170ec061df07b70543e353f.gif",
-   "price": 54900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 8,
-   "no": 2254,
-   "name": "[2color]버튼 모직 카라 퍼 포인트 패딩 숏 자켓",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260923/bb656591e6427d16888435c0e7794498.gif",
-   "price": 59800,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 9,
-   "no": 2222,
-   "name": "[2color,투피스]어텀 모직 카라 플라워 패턴 긴팔 투피스 자켓 세트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260917/ced5e7bd333d9383a24894a7c54215d7.gif",
-   "price": 33900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 10,
-   "no": 2326,
-   "name": "[3color]언발 패턴 웰론 오버핏 숏 패딩",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/360ab1859d402499bc10d80ea1158293.gif",
-   "price": 39800,
-   "sale": null,
-   "soldout": false
-  },
-  {
    "rank": 11,
+   "no": 2252,
+   "name": "[긴팔 세트 투피스][3color]윈터 모직 도트 카라 폴라 투피스 세트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260922/d69d524edcc333b1dea9bde9ca8a8d02.gif",
+   "price": 35500,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 12,
    "no": 1643,
    "name": "[5color]캔디 반목 라운드넥 오버핏 반집업 니트",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251218/2e35b949f4a1fad01dc7afd8c566db0d.gif",
@@ -101,47 +110,38 @@
    "soldout": false
   },
   {
-   "rank": 12,
-   "no": 2269,
-   "name": "[2color]우나 기모 하이넥 버튼 오버핏 후드집업",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/a29c114af9e3e8da2ef9b81f640eb3ba.gif",
+   "rank": 13,
+   "no": 2326,
+   "name": "[3color]언발 패턴 웰론 오버핏 숏 패딩",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/360ab1859d402499bc10d80ea1158293.gif",
    "price": 39800,
    "sale": null,
    "soldout": false
   },
   {
-   "rank": 13,
-   "no": 582,
-   "name": "[묶음할인,3color]부유방 커버 나시",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20241202/5cc9e1cdbba3e43f104d45bf9f782895.jpg",
-   "price": 7900,
-   "sale": null,
-   "soldout": false
-  },
-  {
    "rank": 14,
-   "no": 2401,
-   "name": "[2color,벨트포함]키나 모직 미디 플리츠 스커트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261115/c8fa89d74ba0bad453b4ff94f86e2be0.gif",
-   "price": 29800,
+   "no": 2222,
+   "name": "[2color,투피스]어텀 모직 카라 플라워 패턴 긴팔 투피스 자켓 세트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260917/ced5e7bd333d9383a24894a7c54215d7.gif",
+   "price": 33900,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 15,
-   "no": 2383,
-   "name": "[스카프세트]리노 도트 퍼프 레이어드 프릴 긴팔 티셔츠",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261113/29be8961e2f8030d0ceb307f61b626d9.gif",
-   "price": 17900,
+   "no": 1621,
+   "name": "[5color,3size,기획특가]웰론 후드 경량 패딩",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251205/a6a3aac5970623e2d9a5017a1dcfb8d9.gif",
+   "price": 22300,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 16,
-   "no": 2318,
-   "name": "[머플러 set,3color]카이 스트랩 스트라이프 페이크 레이어드 긴팔 티셔츠",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/896c1a65e9a6c99de8d5193748fb84e5.gif",
-   "price": 23000,
+   "no": 2420,
+   "name": "[2color]키에 라운드 카라 싱글 버튼 모직 하프 코트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261117/b92c8925e170ec061df07b70543e353f.gif",
+   "price": 54900,
    "sale": null,
    "soldout": false
   }
