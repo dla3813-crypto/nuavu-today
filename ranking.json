@@ -1,5 +1,5 @@
 {
- "updated": "11.28 01:48",
+ "updated": "11.28 03:48",
  "items": [
   {
    "rank": 1,
@@ -21,24 +21,6 @@
   },
   {
    "rank": 3,
-   "no": 2301,
-   "name": "[투피스 세트]언발 타이 리본  도트 퍼프 투피스 세트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/ac13ce16fbb06100f25b170ac4ccfef3.gif",
-   "price": 35900,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 4,
-   "no": 2317,
-   "name": "[긴팔+블라우스 세트]이누 플라워 패턴 버튼 카라 퍼프 블라우스 투피스 세트",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/18c6f3f91c837875a86a41c3eec94b69.gif",
-   "price": 35500,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 5,
    "no": 2322,
    "name": "로아 베이직 사선 더플 블랙 후드 숏 코트 자켓",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/744fbf6426884510bf1889e32419de3a.gif",
@@ -47,10 +29,28 @@
    "soldout": false
   },
   {
-   "rank": 6,
+   "rank": 4,
+   "no": 2301,
+   "name": "[투피스 세트]언발 타이 리본  도트 퍼프 투피스 세트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261012/ac13ce16fbb06100f25b170ac4ccfef3.gif",
+   "price": 35900,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 5,
    "no": 2252,
    "name": "[긴팔 세트 투피스][3color]윈터 모직 도트 카라 폴라 투피스 세트",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260922/d69d524edcc333b1dea9bde9ca8a8d02.gif",
+   "price": 35500,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 6,
+   "no": 2317,
+   "name": "[긴팔+블라우스 세트]이누 플라워 패턴 버튼 카라 퍼프 블라우스 투피스 세트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/18c6f3f91c837875a86a41c3eec94b69.gif",
    "price": 35500,
    "sale": null,
    "soldout": false
@@ -66,19 +66,19 @@
   },
   {
    "rank": 8,
-   "no": 2347,
-   "name": "[9color]다나 단추 포인트 니트 버킷 비니",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261103/fc32543802ef216a7b0cc347080586b4.gif",
-   "price": 15700,
+   "no": 1621,
+   "name": "[5color,3size,기획특가]웰론 후드 경량 패딩",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251205/a6a3aac5970623e2d9a5017a1dcfb8d9.gif",
+   "price": 22300,
    "sale": null,
    "soldout": false
   },
   {
    "rank": 9,
-   "no": 1621,
-   "name": "[5color,3size,기획특가]웰론 후드 경량 패딩",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20251205/a6a3aac5970623e2d9a5017a1dcfb8d9.gif",
-   "price": 22300,
+   "no": 2337,
+   "name": "[3color]보니 단추 니트 롱 양말",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261103/756caa714793529004c058f95d9f2c80.gif",
+   "price": 7900,
    "sale": null,
    "soldout": false
   },
@@ -93,10 +93,10 @@
   },
   {
    "rank": 11,
-   "no": 2360,
-   "name": "[5color]밤이 니트 군밤 귀달이 모자",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261103/3e8e6577e65c210bb97cdcdf40aba27d.gif",
-   "price": 20200,
+   "no": 2222,
+   "name": "[2color,투피스]어텀 모직 카라 플라워 패턴 긴팔 투피스 자켓 세트",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20260917/ced5e7bd333d9383a24894a7c54215d7.gif",
+   "price": 33900,
    "sale": null,
    "soldout": false
   },
@@ -120,6 +120,15 @@
   },
   {
    "rank": 14,
+   "no": 2360,
+   "name": "[5color]밤이 니트 군밤 귀달이 모자",
+   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261103/3e8e6577e65c210bb97cdcdf40aba27d.gif",
+   "price": 20200,
+   "sale": null,
+   "soldout": false
+  },
+  {
+   "rank": 15,
    "no": 2318,
    "name": "[머플러 set,3color]카이 스트랩 스트라이프 페이크 레이어드 긴팔 티셔츠",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/896c1a65e9a6c99de8d5193748fb84e5.gif",
@@ -128,20 +137,11 @@
    "soldout": false
   },
   {
-   "rank": 15,
+   "rank": 16,
    "no": 2323,
    "name": "코렌 스트라이프 버튼 레이어드 자수 미디 스커트",
    "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261028/8b502545c430466eccf98728f51691e2.gif",
    "price": 31500,
-   "sale": null,
-   "soldout": false
-  },
-  {
-   "rank": 16,
-   "no": 2351,
-   "name": "[6color]아라 레이스 버튼 니트 레그워머",
-   "img": "https://ecimg.cafe24img.com/pg411b10246464004/nuavu/web/product/medium/20261103/1d70989df620626637f0ff0bfc8fe298.gif",
-   "price": 13900,
    "sale": null,
    "soldout": false
   }
